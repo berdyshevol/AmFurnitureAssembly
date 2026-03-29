@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
+import HeroCarousel from '@/components/HeroCarousel'
 import StatsBar from '@/components/StatsBar'
 import ServiceCard from '@/components/ServiceCard'
 import TestimonialCard from '@/components/TestimonialCard'
@@ -25,48 +26,8 @@ export default function Home() {
 
   return (
     <>
-      {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <ScrollReveal direction="left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light leading-tight text-primary">
-              Expert{' '}
-              <span className="font-bold">Furniture Assembly</span>{' '}
-              You Can Trust
-            </h1>
-            <p className="mt-6 text-lg text-secondary leading-relaxed max-w-lg">
-              Professional furniture assembly service in Denton, TX. We handle
-              everything from beds and wardrobes to outdoor structures — so you
-              don&apos;t have to.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center rounded-[var(--radius-button)] bg-primary px-7 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
-              >
-                Get a Free Quote &rarr;
-              </Link>
-              <Link
-                href="/gallery"
-                className="inline-flex items-center rounded-[var(--radius-button)] border border-border px-7 py-3 text-sm font-medium text-primary transition-colors hover:bg-background"
-              >
-                View Our Work &rarr;
-              </Link>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="right">
-            <Image
-              src="/photos/IMG_2729.jpeg"
-              alt="White modular shelving system assembled by AM Furniture Assembly"
-              width={800}
-              height={600}
-              className="rounded-2xl object-cover w-full"
-              priority
-            />
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* ── Hero Carousel ────────────────────────────────────────────── */}
+      <HeroCarousel />
 
       {/* ── Stats ─────────────────────────────────────────────────────── */}
       <section className="bg-background">
