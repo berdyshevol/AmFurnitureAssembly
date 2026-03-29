@@ -19,6 +19,7 @@
 /build
 
 # Environment files (secrets)
+.env.local
 .env*
 !.env.example
 
