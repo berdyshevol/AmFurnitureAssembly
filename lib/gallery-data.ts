@@ -89,8 +89,8 @@ export const galleryPhotos: GalleryPhoto[] = [
   },
   {
     src: '/photos/IMG_2313.jpeg',
-    alt: 'Gray wooden dressers with slatted drawer fronts',
-    category: 'wardrobes',
+    alt: 'Gray wooden desk with slatted drawer fronts',
+    category: 'other',
   },
   {
     src: '/photos/IMG_2373.jpeg',
@@ -106,29 +106,29 @@ export const galleryPhotos: GalleryPhoto[] = [
   // ── Shelves & Storage ─────────────────────────────────────────────────
   {
     src: '/photos/IMG_2672.jpeg',
-    alt: 'Cabinet assembly in progress showing detailed joinery',
-    category: 'shelves',
+    alt: 'Black metal dining table with chairs',
+    category: 'other',
   },
   {
     src: '/photos/IMG_2705.jpeg',
-    alt: 'White open shelving unit with cubbies',
-    category: 'shelves',
-    featured: true,
+    alt: 'Dark brown TV stand with slatted front design',
+    category: 'other',
   },
   {
     src: '/photos/IMG_2729.jpeg',
     alt: 'White modular shelving system with compartments',
     category: 'shelves',
+    featured: true,
   },
   {
     src: '/photos/IMG_2762.jpeg',
-    alt: 'Dark brown wall-mounted shelf with slatted design',
-    category: 'shelves',
+    alt: 'Dark brown cabinet with slatted front and open compartment',
+    category: 'wardrobes',
   },
   {
     src: '/photos/IMG_2772.jpeg',
-    alt: 'Black ceiling-mounted storage unit with LED lighting',
-    category: 'shelves',
+    alt: 'Large black wardrobe with slatted doors and brass handles',
+    category: 'wardrobes',
   },
   {
     src: '/photos/IMG_2364.jpeg',
@@ -178,7 +178,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   {
     src: '/photos/IMG_1641.jpeg',
     alt: 'Yellow and navy blue children\'s bed frame',
-    category: 'other',
+    category: 'beds',
   },
   {
     src: '/photos/IMG_2669.jpeg',
