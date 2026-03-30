@@ -23,8 +23,8 @@ The six sections ("What We Assemble"):
 5. Outdoor / Garden
 6. Any Brand
 
-- [ ] Each section should link to the Gallery page filtered by its matching category
-- [ ] Ensure category names/slugs in the home page match gallery categories
+- [x] Each section should link to the Gallery page filtered by its matching category
+- [x] Ensure category names/slugs in the home page match gallery categories
 
 ## 4. Home Page: Fix "Our Recent Work" layout
 
