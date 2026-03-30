@@ -1,21 +1,21 @@
-'use client'
+"use client";
 
-import { useRef, useEffect, useState } from 'react'
-import { useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from "react";
+import { useInView } from "framer-motion";
 
 interface StatItem {
-  value: number
-  suffix: string
-  label: string
-  decimals?: number
+  value: number;
+  suffix: string;
+  label: string;
+  decimals?: number;
 }
 
 const stats: StatItem[] = [
-  { value: 38, suffix: '+', label: 'Projects', decimals: 0 },
-  { value: 5.0, suffix: '', label: 'Thumbtack Rating', decimals: 1 },
-  { value: 30, suffix: '', label: 'Five-Star Reviews', decimals: 0 },
-  { value: 100, suffix: '%', label: 'Satisfaction', decimals: 0 },
-]
+  { value: 100, suffix: "+", label: "Projects", decimals: 0 },
+  { value: 5.0, suffix: "", label: "Thumbtack Rating", decimals: 1 },
+  { value: 30, suffix: "", label: "Five-Star Reviews", decimals: 0 },
+  { value: 100, suffix: "%", label: "Satisfaction", decimals: 0 },
+];
 
 function AnimatedNumber({
   value,
@@ -23,40 +23,40 @@ function AnimatedNumber({
   decimals = 0,
   animate,
 }: StatItem & { animate: boolean }) {
-  const [display, setDisplay] = useState(0)
+  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (!animate) return
+    if (!animate) return;
 
-    const duration = 1200
-    const startTime = performance.now()
+    const duration = 1200;
+    const startTime = performance.now();
 
     function tick(now: number) {
-      const elapsed = now - startTime
-      const progress = Math.min(elapsed / duration, 1)
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
       // ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setDisplay(eased * value)
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(eased * value);
 
       if (progress < 1) {
-        requestAnimationFrame(tick)
+        requestAnimationFrame(tick);
       }
     }
 
-    requestAnimationFrame(tick)
-  }, [animate, value])
+    requestAnimationFrame(tick);
+  }, [animate, value]);
 
   return (
     <span>
       {decimals > 0 ? display.toFixed(decimals) : Math.round(display)}
       {suffix}
     </span>
-  )
+  );
 }
 
 export default function StatsBar() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <div
@@ -72,5 +72,5 @@ export default function StatsBar() {
         </div>
       ))}
     </div>
-  )
+  );
 }

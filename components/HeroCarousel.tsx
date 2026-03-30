@@ -4,21 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
-const slides = [
-  {
-    src: '/photos/banner1.png',
-    alt: 'Instant Assembly Magic — modern furniture assembled effortlessly from the box',
-  },
-  {
-    src: '/photos/banner2.png',
-    alt: 'Professional Furniture Assembly — save more with bundle deals: 10% off 1-3 items, 15% off 4-6 items, 20% off 7+ items',
-  },
-  {
-    src: '/photos/banner3.png',
-    alt: 'We Are Putting Things Together — same or next day furniture assembly available, call (940) 222-0263',
-  },
-]
+import { heroSlides } from '@/lib/config'
 
 const AUTOPLAY_MS = 5500
 
@@ -29,7 +15,7 @@ export default function HeroCarousel() {
   const resetTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current)
     timerRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length)
+      setCurrent((prev) => (prev + 1) % heroSlides.length)
     }, AUTOPLAY_MS)
   }, [])
 
@@ -111,17 +97,19 @@ export default function HeroCarousel() {
             transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
             className="relative z-20 flex flex-col items-center"
           >
-            {/* Carousel frame — all slides stacked, crossfade via opacity */}
+            {/* Carousel frame — all heroSlides stacked, crossfade via opacity */}
             <div className="relative w-full max-w-[480px] mx-auto aspect-[3/4] rounded-[20px] overflow-hidden shadow-2xl shadow-black/10 ring-1 ring-black/[0.04]">
-              {slides.map((slide, i) => (
-                <div
+              {heroSlides.map((slide, i) => (
+                <Link
                   key={slide.src}
+                  href="/contact"
                   className="absolute inset-0 transition-opacity duration-700 ease-in-out"
                   style={{
                     opacity: i === current ? 1 : 0,
                     zIndex: i === current ? 1 : 0,
                   }}
                   aria-hidden={i !== current}
+                  tabIndex={i === current ? 0 : -1}
                 >
                   <Image
                     src={slide.src}
@@ -131,7 +119,7 @@ export default function HeroCarousel() {
                     className="object-cover"
                     priority
                   />
-                </div>
+                </Link>
               ))}
 
               {/* Soft vignette edges */}
@@ -140,7 +128,7 @@ export default function HeroCarousel() {
 
             {/* Navigation dots */}
             <div className="mt-6 flex items-center gap-2.5">
-              {slides.map((_, i) => (
+              {heroSlides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => goTo(i)}
