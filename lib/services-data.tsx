@@ -11,7 +11,7 @@ export interface Service {
 
 const iconProps = {
   viewBox: '0 0 48 48',
-  className: 'w-7 h-7',
+  className: 'w-12 h-12',
   stroke: 'currentColor',
   strokeWidth: 1.5,
   fill: 'none' as const,
@@ -76,13 +76,13 @@ export const services: Service[] = [
   {
     icon: (
       <svg {...iconProps}>
-        <rect x="8" y="4" width="32" height="40" rx="1"/>
-        <line x1="8" y1="14" x2="40" y2="14"/>
-        <line x1="8" y1="24" x2="40" y2="24"/>
-        <line x1="8" y1="34" x2="40" y2="34"/>
-        <rect x="12" y="16" width="6" height="8" rx="1"/>
-        <rect x="22" y="26" width="8" height="8" rx="1"/>
-        <rect x="12" y="6" width="10" height="8" rx="1"/>
+        <rect x="6" y="6" width="36" height="28" rx="2"/>
+        <line x1="6" y1="20" x2="42" y2="20"/>
+        <line x1="24" y1="20" x2="24" y2="34"/>
+        <circle cx="15" cy="13" r="2"/>
+        <circle cx="33" cy="27" r="2"/>
+        <line x1="10" y1="34" x2="10" y2="40"/>
+        <line x1="38" y1="34" x2="38" y2="40"/>
       </svg>
     ),
     title: 'Living Room',
