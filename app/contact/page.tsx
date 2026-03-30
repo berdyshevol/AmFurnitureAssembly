@@ -1,12 +1,8 @@
 import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
-import { siteConfig } from '@/lib/config'
+import { siteConfig, pageMetadata } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: 'Contact Us | AM Furniture Assembly',
-  description:
-    'Get a free quote for furniture assembly in Denton, TX. Contact AM Furniture Assembly by phone, email, or our online form.',
-}
+export const metadata: Metadata = pageMetadata.contact
 
 export default function ContactPage() {
   return (
@@ -160,18 +156,9 @@ export default function ContactPage() {
                 Business Hours
               </h3>
               <ul className="mt-4 space-y-2 text-sm text-secondary">
-                <li className="flex justify-between">
-                  <span>Mon &ndash; Fri</span>
-                  <span>8am &ndash; 7pm</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Sat</span>
-                  <span>9am &ndash; 5pm</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Sun</span>
-                  <span>By appointment</span>
-                </li>
+                <li>{siteConfig.hours.weekdays}</li>
+                <li>{siteConfig.hours.saturday}</li>
+                <li>{siteConfig.hours.sunday}</li>
               </ul>
 
               {/* Payment Methods */}

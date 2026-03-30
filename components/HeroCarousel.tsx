@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { heroSlides, ctaLabels } from '@/lib/config'
+import { heroSlides, ctaLabels, siteConfig } from '@/lib/config'
 
 const AUTOPLAY_MS = 5500
 
@@ -58,7 +58,7 @@ export default function HeroCarousel() {
             className="relative z-20 text-center lg:text-left"
           >
             <span className="inline-block rounded-full bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-5">
-              Denton, TX &middot; Same-Day Service
+              {siteConfig.location} &middot; Same-Day Service
             </span>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-light leading-[1.1] text-primary tracking-tight">
@@ -69,7 +69,7 @@ export default function HeroCarousel() {
             </h1>
 
             <p className="mt-6 text-lg text-secondary leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Professional furniture assembly service in Denton,&nbsp;TX.
+              Professional furniture assembly service in {siteConfig.location}.
               We handle everything from beds and wardrobes to outdoor
               structures&nbsp;— so you don&apos;t have&nbsp;to.
             </p>

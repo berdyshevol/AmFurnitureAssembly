@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { siteConfig } from '@/lib/config'
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -22,7 +23,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | AM Furniture Assembly`,
+    title: `${post.title} | ${siteConfig.shortName}`,
     description: post.excerpt,
   }
 }

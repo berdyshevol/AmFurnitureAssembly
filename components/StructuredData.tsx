@@ -1,4 +1,4 @@
-import { siteConfig } from '@/lib/config'
+import { siteConfig, baseUrl, reviewSummary } from '@/lib/config'
 
 export default function StructuredData() {
   const schema = {
@@ -6,15 +6,15 @@ export default function StructuredData() {
     '@type': 'LocalBusiness',
     name: siteConfig.name,
     description: `Professional furniture assembly service in ${siteConfig.location}`,
-    url: 'https://amfurnitureassembly.com',
+    url: baseUrl,
     telephone: siteConfig.phone,
     email: siteConfig.email,
     areaServed: siteConfig.location,
-    priceRange: '$$',
+    priceRange: reviewSummary.priceRange,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '30',
+      ratingValue: reviewSummary.rating,
+      reviewCount: reviewSummary.reviewCount,
     },
   }
 

@@ -2,13 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
-import { aboutPageContent } from '@/lib/config'
+import { aboutPageContent, pageMetadata, pageHeroes } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: 'About AM Furniture Assembly | Dallas-Fort Worth, Texas',
-  description:
-    'Professional furniture assembly in Dallas-Fort Worth, TX. Over 7 years of experience from Europe. IKEA, wardrobe, office furniture assembly.',
-}
+export const metadata: Metadata = pageMetadata.about
 
 export default function AboutPage() {
   const content = aboutPageContent
@@ -18,8 +14,8 @@ export default function AboutPage() {
       {/* ── Hero Banner ───────────────────────────────────────────────── */}
       <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/photos/IMG_2672.jpeg"
-          alt="Cabinet assembly in progress"
+          src={pageHeroes.about.src}
+          alt={pageHeroes.about.alt}
           fill
           className="object-cover"
           priority

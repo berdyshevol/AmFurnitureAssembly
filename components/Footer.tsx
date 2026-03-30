@@ -1,14 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { siteConfig } from '@/lib/config'
-
-const quickLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/contact', label: 'Contact' },
-]
+import { siteConfig, footerLinks } from '@/lib/config'
 
 export default function Footer() {
   return (
@@ -35,7 +27,7 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="mt-4 space-y-3">
-              {quickLinks.map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

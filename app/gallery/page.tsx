@@ -2,12 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { galleryPhotos, categories, type PhotoCategory } from '@/lib/gallery-data'
 import GalleryGrid from '@/components/GalleryGrid'
+import { pageMetadata, pageHeroes } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: 'Our Work | AM Furniture Assembly',
-  description:
-    'Browse our portfolio of professionally assembled furniture in Denton, TX. Beds, wardrobes, shelving, outdoor structures, and more.',
-}
+export const metadata: Metadata = pageMetadata.gallery
 
 const validCategories = categories.map((c) => c.value)
 
@@ -21,8 +18,8 @@ export default async function GalleryPage({ searchParams }: { searchParams: Prom
       {/* Hero */}
       <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/photos/IMG_2763.jpeg"
-          alt="Outdoor playground assembly by AM Furniture"
+          src={pageHeroes.gallery.src}
+          alt={pageHeroes.gallery.alt}
           fill
           className="object-cover"
           priority

@@ -2,42 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
+import { pageMetadata, pageHeroes, howItWorksSteps, brands } from '@/lib/config'
 import { services } from '@/lib/services-data'
 
-export const metadata: Metadata = {
-  title: 'Our Services | AM Furniture Assembly',
-  description:
-    'Professional furniture assembly services in Denton, TX. Beds, wardrobes, shelving, office furniture, outdoor structures, and more. All major brands.',
-}
-
-const steps = [
-  {
-    number: 1,
-    title: 'Book',
-    description: 'Contact us for a free estimate. Tell us what you need assembled and we\'ll provide a clear quote.',
-  },
-  {
-    number: 2,
-    title: 'We Arrive',
-    description: 'We show up on time, fully equipped with all the tools needed to get the job done right.',
-  },
-  {
-    number: 3,
-    title: 'Done',
-    description: 'Professional assembly, thorough cleanup, and a workspace left spotless. Enjoy your new furniture.',
-  },
-]
-
-const brands = [
-  'IKEA',
-  'Wayfair',
-  'Amazon',
-  'West Elm',
-  'CB2',
-  'Target',
-  'Pottery Barn',
-  'Crate & Barrel',
-]
+export const metadata: Metadata = pageMetadata.services
 
 export default function ServicesPage() {
   return (
@@ -45,8 +13,8 @@ export default function ServicesPage() {
       {/* ── Hero Banner ───────────────────────────────────────────────── */}
       <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/photos/IMG_2705.jpeg"
-          alt="White open shelving unit assembled by AM Furniture Assembly"
+          src={pageHeroes.services.src}
+          alt={pageHeroes.services.alt}
           fill
           className="object-cover"
           priority
@@ -116,12 +84,12 @@ export default function ServicesPage() {
               How It <span className="font-bold">Works</span>
             </h2>
             <p className="mt-4 text-secondary max-w-2xl mx-auto">
-              Three simple steps to perfectly assembled furniture.
+              Three simple howItWorksSteps to perfectly assembled furniture.
             </p>
           </ScrollReveal>
 
           <div className="mt-14 flex flex-col items-center gap-10 lg:flex-row lg:gap-0">
-            {steps.map((step, i) => (
+            {howItWorksSteps.map((step, i) => (
               <div key={step.number} className="flex items-center lg:flex-1">
                 <ScrollReveal delay={i * 0.15} className="flex flex-col items-center text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-2xl font-bold text-white">
@@ -136,7 +104,7 @@ export default function ServicesPage() {
                 </ScrollReveal>
 
                 {/* Connector line */}
-                {i < steps.length - 1 && (
+                {i < howItWorksSteps.length - 1 && (
                   <div className="hidden lg:block flex-1 h-px bg-border mx-6" />
                 )}
               </div>

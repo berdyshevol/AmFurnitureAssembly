@@ -1,3 +1,5 @@
+export const baseUrl = 'https://amfurnitureassembly.com'
+
 export const siteConfig = {
   name: "Andrii Mohylov Furniture Assembly",
   shortName: "AM Furniture Assembly",
@@ -103,3 +105,142 @@ export const heroSlides = [
     alt: 'Instant Assembly Magic — modern furniture assembled effortlessly from the box',
   },
 ] as const;
+
+export const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+] as const;
+
+export const footerLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+] as const;
+
+export const stats = [
+  { value: 100, suffix: '+', label: 'Projects', decimals: 0 },
+  { value: 5.0, suffix: '', label: 'Thumbtack Rating', decimals: 1 },
+  { value: 30, suffix: '', label: 'Five-Star Reviews', decimals: 0 },
+  { value: 100, suffix: '%', label: 'Satisfaction', decimals: 0 },
+] as const;
+
+export const contactFormServiceOptions = [
+  'Bed Assembly',
+  'Wardrobe/Cabinet',
+  'Shelving/Storage',
+  'Office Furniture',
+  'Outdoor/Garden',
+  'Other',
+] as const;
+
+export const howItWorksSteps = [
+  {
+    number: 1,
+    title: 'Book',
+    description: "Contact us for a free estimate. Tell us what you need assembled and we'll provide a clear quote.",
+  },
+  {
+    number: 2,
+    title: 'We Arrive',
+    description: 'We show up on time, fully equipped with all the tools needed to get the job done right.',
+  },
+  {
+    number: 3,
+    title: 'Done',
+    description: 'Professional assembly, thorough cleanup, and a workspace left spotless. Enjoy your new furniture.',
+  },
+] as const;
+
+export const brands = [
+  'IKEA',
+  'Wayfair',
+  'Amazon',
+  'West Elm',
+  'CB2',
+  'Target',
+  'Pottery Barn',
+  'Crate & Barrel',
+] as const;
+
+export const reviewSummary = {
+  rating: '5.0',
+  reviewCount: '30',
+  priceRange: '$$',
+} as const;
+
+export const openGraphConfig = {
+  type: 'website' as const,
+  locale: 'en_US',
+  siteName: 'AM Furniture Assembly',
+  image: {
+    url: '/photos/IMG_2729.jpeg',
+    width: 1200,
+    height: 630,
+    alt: 'AM Furniture Assembly - Professional Furniture Assembly in Denton, TX',
+  },
+} as const;
+
+export const pageMetadata = {
+  layout: {
+    title: 'AM Furniture Assembly | Professional Furniture Assembly in Denton, TX',
+    description:
+      'Expert furniture assembly service in Denton, TX. We assemble IKEA, Wayfair, Amazon, and all major brands. 30 five-star reviews. Starting at $40. Get a free quote today!',
+  },
+  home: {
+    title: 'AM Furniture Assembly | Professional Furniture Assembly in Denton, TX',
+    description:
+      'Expert furniture assembly service in Denton, TX. From IKEA to Wayfair, we assemble all brands with precision and care. Same-day service available.',
+  },
+  about: {
+    title: 'About AM Furniture Assembly | Dallas-Fort Worth, Texas',
+    description:
+      'Professional furniture assembly in Dallas-Fort Worth, TX. Over 7 years of experience from Europe. IKEA, wardrobe, office furniture assembly.',
+  },
+  services: {
+    title: 'Our Services | AM Furniture Assembly',
+    description:
+      'Professional furniture assembly services in Denton, TX. Beds, wardrobes, shelving, office furniture, outdoor structures, and more. All major brands.',
+  },
+  pricing: {
+    title: 'Pricing | AM Furniture Assembly',
+    description:
+      'Transparent flat-rate pricing for furniture assembly in Denton, TX. Chairs from $40, beds from $75, desks from $65. Bundle discounts up to 20%.',
+  },
+  gallery: {
+    title: 'Our Work | AM Furniture Assembly',
+    description:
+      'Browse our portfolio of professionally assembled furniture in Denton, TX. Beds, wardrobes, shelving, outdoor structures, and more.',
+  },
+  testimonials: {
+    title: 'Testimonials | AM Furniture Assembly',
+    description:
+      'Read what our customers say about AM Furniture Assembly. 30 five-star reviews on Thumbtack from satisfied clients in Denton, TX.',
+  },
+  contact: {
+    title: 'Contact Us | AM Furniture Assembly',
+    description:
+      'Get a free quote for furniture assembly in Denton, TX. Contact AM Furniture Assembly by phone, email, or our online form.',
+  },
+  blog: {
+    title: 'Blog & FAQ | AM Furniture Assembly',
+    description:
+      'Tips, guides, and frequently asked questions about professional furniture assembly in Denton, TX.',
+  },
+} as const;
+
+export const pageHeroes = {
+  about: { src: '/photos/IMG_2672.jpeg', alt: 'Cabinet assembly in progress' },
+  services: { src: '/photos/IMG_2705.jpeg', alt: 'White open shelving unit assembled by AM Furniture Assembly' },
+  pricing: { src: '/photos/IMG_2734.jpeg', alt: 'Professional furniture assembly workspace' },
+  gallery: { src: '/photos/IMG_2763.jpeg', alt: 'Outdoor playground assembly by AM Furniture' },
+  testimonials: { src: '/photos/IMG_2736.jpeg', alt: 'Assembled outdoor playground structure' },
+  homeDivider: { src: '/photos/IMG_2735.jpeg', alt: 'Precision furniture assembly' },
+} as const;

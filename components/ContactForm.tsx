@@ -2,16 +2,9 @@
 
 import { useState, type FormEvent } from 'react'
 
-type FormStatus = 'idle' | 'loading' | 'success' | 'error'
+import { contactFormServiceOptions } from '@/lib/config'
 
-const serviceOptions = [
-  'Bed Assembly',
-  'Wardrobe/Cabinet',
-  'Shelving/Storage',
-  'Office Furniture',
-  'Outdoor/Garden',
-  'Other',
-]
+type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
 export default function ContactForm() {
   const [status, setStatus] = useState<FormStatus>('idle')
@@ -152,7 +145,7 @@ export default function ContactForm() {
           <option value="" disabled>
             Select a service...
           </option>
-          {serviceOptions.map((opt) => (
+          {contactFormServiceOptions.map((opt) => (
             <option key={opt} value={opt}>
               {opt}
             </option>

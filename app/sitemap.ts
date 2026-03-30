@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog'
+import { baseUrl } from '@/lib/config'
 
-const BASE_URL = 'https://amfurnitureassembly.com'
+const BASE_URL = baseUrl
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts()

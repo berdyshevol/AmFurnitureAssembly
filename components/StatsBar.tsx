@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
+import { stats } from "@/lib/config";
 
 interface StatItem {
   value: number;
@@ -9,13 +10,6 @@ interface StatItem {
   label: string;
   decimals?: number;
 }
-
-const stats: StatItem[] = [
-  { value: 100, suffix: "+", label: "Projects", decimals: 0 },
-  { value: 5.0, suffix: "", label: "Thumbtack Rating", decimals: 1 },
-  { value: 30, suffix: "", label: "Five-Star Reviews", decimals: 0 },
-  { value: 100, suffix: "%", label: "Satisfaction", decimals: 0 },
-];
 
 function AnimatedNumber({
   value,

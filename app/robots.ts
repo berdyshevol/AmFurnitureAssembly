@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { baseUrl } from '@/lib/config'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://amfurnitureassembly.com/sitemap.xml',
+    sitemap: `${baseUrl}/sitemap.xml`,
   }
 }

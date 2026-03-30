@@ -4,12 +4,9 @@ import { testimonials } from '@/lib/testimonials-data'
 import TestimonialCard from '@/components/TestimonialCard'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
+import { pageMetadata, pageHeroes, siteConfig, reviewSummary } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: 'Testimonials | AM Furniture Assembly',
-  description:
-    'Read what our customers say about AM Furniture Assembly. 30 five-star reviews on Thumbtack from satisfied clients in Denton, TX.',
-}
+export const metadata: Metadata = pageMetadata.testimonials
 
 export default function TestimonialsPage() {
   return (
@@ -17,8 +14,8 @@ export default function TestimonialsPage() {
       {/* Hero */}
       <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/photos/IMG_2736.jpeg"
-          alt="Assembled outdoor playground structure"
+          src={pageHeroes.testimonials.src}
+          alt={pageHeroes.testimonials.alt}
           fill
           className="object-cover"
           priority
@@ -37,14 +34,14 @@ export default function TestimonialsPage() {
       {/* Rating Summary */}
       <section className="py-12 px-4 text-center">
         <div className="mx-auto max-w-md">
-          <p className="text-6xl font-bold text-primary">5.0</p>
+          <p className="text-6xl font-bold text-primary">{reviewSummary.rating}</p>
           <div
             className="mt-3 text-3xl text-amber-500"
-            aria-label="5 out of 5 stars"
+            aria-label={`${reviewSummary.rating} out of 5 stars`}
           >
             {'★★★★★'}
           </div>
-          <p className="mt-3 text-sm text-secondary">30 reviews on Thumbtack</p>
+          <p className="mt-3 text-sm text-secondary">{reviewSummary.reviewCount} reviews on Thumbtack</p>
         </div>
       </section>
 
@@ -67,7 +64,7 @@ export default function TestimonialsPage() {
       {/* Thumbtack Link */}
       <section className="py-12 px-4 text-center">
         <a
-          href="https://www.thumbtack.com/tx/denton/mobile-auto-detailing-services/am-furniture-assembly/service/554676627122528261"
+          href={siteConfig.thumbtackUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center rounded-[var(--radius-button)] bg-primary px-8 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"

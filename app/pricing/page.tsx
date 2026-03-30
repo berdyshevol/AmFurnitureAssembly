@@ -3,13 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
+import { pageMetadata, pageHeroes, siteConfig } from '@/lib/config'
 import { bundleTiers, pricingItems } from '@/lib/pricing-data'
 
-export const metadata: Metadata = {
-  title: 'Pricing | AM Furniture Assembly',
-  description:
-    'Transparent flat-rate pricing for furniture assembly in Denton, TX. Chairs from $40, beds from $75, desks from $65. Bundle discounts up to 20%.',
-}
+export const metadata: Metadata = pageMetadata.pricing
 
 export default function PricingPage() {
   return (
@@ -17,8 +14,8 @@ export default function PricingPage() {
       {/* ── Hero Banner ───────────────────────────────────────────────── */}
       <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/photos/IMG_2734.jpeg"
-          alt="Professional furniture assembly workspace"
+          src={pageHeroes.pricing.src}
+          alt={pageHeroes.pricing.alt}
           fill
           className="object-cover"
           priority
@@ -162,9 +159,9 @@ export default function PricingPage() {
             name: 'Furniture Assembly',
             provider: {
               '@type': 'LocalBusiness',
-              name: 'AM Furniture Assembly',
+              name: siteConfig.name,
             },
-            areaServed: 'Denton, TX',
+            areaServed: siteConfig.location,
             offers: pricingItems.map((item) => ({
               '@type': 'Offer',
               name: `${item.name} Assembly`,

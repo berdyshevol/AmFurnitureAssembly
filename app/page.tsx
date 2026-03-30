@@ -7,16 +7,14 @@ import StatsBar from '@/components/StatsBar'
 import ServiceCard from '@/components/ServiceCard'
 import TestimonialCard from '@/components/TestimonialCard'
 import CTASection from '@/components/CTASection'
-import { ctaLabels } from '@/lib/config'
+import { ctaLabels, pageMetadata, pageHeroes, siteConfig } from '@/lib/config'
+
+
 import { services } from '@/lib/services-data'
 import { galleryPhotos, categories } from '@/lib/gallery-data'
 import { testimonials } from '@/lib/testimonials-data'
 
-export const metadata: Metadata = {
-  title: 'AM Furniture Assembly | Professional Furniture Assembly in Denton, TX',
-  description:
-    'Expert furniture assembly service in Denton, TX. From IKEA to Wayfair, we assemble all brands with precision and care. Same-day service available.',
-}
+export const metadata: Metadata = pageMetadata.home
 
 export default function Home() {
   const heroPhoto = galleryPhotos.find((p) => p.src === '/photos/IMG_2670.jpeg')!
@@ -74,8 +72,8 @@ export default function Home() {
       {/* ── Photo Divider ────────────────────────────────────────────── */}
       <section className="relative h-[280px] sm:h-[340px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/photos/IMG_2735.jpeg"
-          alt="Precision furniture assembly"
+          src={pageHeroes.homeDivider.src}
+          alt={pageHeroes.homeDivider.alt}
           fill
           className="object-cover"
         />
@@ -86,7 +84,7 @@ export default function Home() {
               Built with <span className="font-bold">Precision.</span> Every Time.
             </h2>
             <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-              Trusted by homeowners across Denton, TX
+              Trusted by homeowners across {siteConfig.location}
             </p>
             <Link
               href="/contact"
@@ -107,7 +105,7 @@ export default function Home() {
             </h2>
             <p className="mt-4 text-secondary max-w-2xl mx-auto">
               Browse some of our latest furniture assembly projects across the
-              Denton, TX area.
+              {siteConfig.location} area.
             </p>
           </ScrollReveal>
 

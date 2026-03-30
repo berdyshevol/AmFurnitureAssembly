@@ -4,12 +4,9 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import { faqItems } from '@/lib/faq-data'
 import FAQAccordion from '@/components/FAQAccordion'
+import { pageMetadata } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: 'Blog & FAQ | AM Furniture Assembly',
-  description:
-    'Tips, guides, and frequently asked questions about professional furniture assembly in Denton, TX.',
-}
+export const metadata: Metadata = pageMetadata.blog
 
 export default async function BlogPage() {
   const posts = await getAllPosts()
