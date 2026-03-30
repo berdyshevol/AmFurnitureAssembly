@@ -2,41 +2,17 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
+import { aboutPageContent } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'About Andrii Mohylov | AM Furniture Assembly',
+  title: 'About AM Furniture Assembly | Dallas-Fort Worth, Texas',
   description:
-    'Learn about Andrii Mohylov and the story behind AM Furniture Assembly. Experienced, reliable furniture assembly in Denton, TX.',
+    'Professional furniture assembly in Dallas-Fort Worth, TX. Over 7 years of experience from Europe. IKEA, wardrobe, office furniture assembly.',
 }
 
-const whyChooseUs = [
-  {
-    icon: '\u{1F3C6}',
-    title: 'Experienced Professional',
-    description:
-      'With dozens of successful projects under our belt, we bring skill and efficiency to every assembly job.',
-  },
-  {
-    icon: '\u{1F4E6}',
-    title: 'All Brands Welcome',
-    description:
-      'IKEA, Wayfair, Amazon, West Elm — if it comes in a box with instructions, we can build it.',
-  },
-  {
-    icon: '\u26A1',
-    title: 'Same-Day Service',
-    description:
-      'Need it done today? We offer same-day and next-day assembly, subject to availability.',
-  },
-  {
-    icon: '\u2705',
-    title: 'Satisfaction Guaranteed',
-    description:
-      'We stand behind our work. If something isn\'t right, we\'ll make it right at no extra cost.',
-  },
-]
-
 export default function AboutPage() {
+  const content = aboutPageContent
+
   return (
     <>
       {/* ── Hero Banner ───────────────────────────────────────────────── */}
@@ -52,47 +28,28 @@ export default function AboutPage() {
         <div className="relative z-10 text-center px-4">
           <ScrollReveal>
             <h1 className="text-4xl sm:text-5xl font-light text-white leading-tight">
-              About <span className="font-bold">Andrii Mohylov</span>
+              {content.hero.title}
             </h1>
-            <p className="mt-4 text-white/80 text-lg max-w-xl mx-auto">
-              The craftsman behind every perfectly assembled piece
-            </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Story Section ─────────────────────────────────────────────── */}
+      {/* ── Intro + Founder ───────────────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <ScrollReveal direction="left">
-            <h2 className="text-3xl sm:text-4xl font-light text-primary">
-              My <span className="font-bold">Story</span>
-            </h2>
+            <p className="text-secondary leading-relaxed text-lg">
+              {content.intro}
+            </p>
             <p className="mt-6 text-secondary leading-relaxed">
-              My name is Andrii Mohylov, and I founded AM Furniture Assembly
-              with a simple belief: everyone deserves furniture that&apos;s built
-              right. What started as helping friends and neighbors with their
-              flat-pack frustrations quickly grew into a full-time passion.
-            </p>
-            <p className="mt-4 text-secondary leading-relaxed">
-              With years of hands-on experience, I&apos;ve assembled everything
-              from simple nightstands to complex wardrobe systems, outdoor sheds,
-              and play structures. I treat every home like my own — protecting
-              floors, cleaning up after every job, and making sure each piece is
-              solid, level, and built to last.
-            </p>
-            <p className="mt-4 text-secondary leading-relaxed">
-              Based in Denton, TX, I proudly serve the surrounding communities
-              including Frisco, McKinney, Plano, and the greater DFW area. When
-              you hire AM Furniture Assembly, you get me — someone who genuinely
-              cares about doing excellent work.
+              {content.founderStory}
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="right">
             <Image
-              src="/photos/IMG_2670.jpeg"
-              alt="Tall wooden dresser with 12 drawers assembled by Andrii"
+              src="/photos/about.jpg"
+              alt="Andrii Mohylov — founder of AM Furniture Assembly"
               width={600}
               height={750}
               className="rounded-[var(--radius-card)] object-cover w-full"
@@ -101,35 +58,101 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Why Choose Us ─────────────────────────────────────────────── */}
+      {/* ── Our Services ──────────────────────────────────────────────── */}
       <section className="bg-background py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center">
             <h2 className="text-3xl sm:text-4xl font-light text-primary">
-              Why Choose <span className="font-bold">Us</span>
+              Our Furniture <span className="font-bold">Assembly Services</span>
             </h2>
             <p className="mt-4 text-secondary max-w-2xl mx-auto">
-              Here&apos;s what sets AM Furniture Assembly apart from the rest.
+              {content.services.description}
             </p>
           </ScrollReveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {whyChooseUs.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 0.1}>
-                <div className="rounded-[var(--radius-card)] bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-2xl text-white">
-                    {item.icon}
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-secondary leading-relaxed">
-                    {item.description}
-                  </p>
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+            {content.services.items.map((item, i) => (
+              <ScrollReveal key={item} delay={i * 0.08}>
+                <div className="flex items-center gap-3 rounded-[var(--radius-card)] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white text-sm">
+                    ✓
+                  </span>
+                  <span className="text-sm text-primary font-medium">{item}</span>
                 </div>
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal>
+            <p className="mt-10 text-center text-secondary max-w-3xl mx-auto leading-relaxed">
+              {content.services.footer}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── Why Choose Us ─────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <ScrollReveal>
+          <h2 className="text-3xl sm:text-4xl font-light text-primary text-center">
+            Why Choose <span className="font-bold">AM Furniture Assembly</span>
+          </h2>
+          <p className="mt-6 text-secondary leading-relaxed max-w-3xl mx-auto text-center">
+            {content.whyChoose.intro}
+          </p>
+        </ScrollReveal>
+
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-3xl mx-auto">
+          {content.whyChoose.guarantees.map((item, i) => (
+            <ScrollReveal key={item} delay={i * 0.08}>
+              <div className="flex items-center gap-3 rounded-[var(--radius-card)] bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-white text-sm">
+                  ✓
+                </span>
+                <span className="text-sm text-primary font-medium">{item}</span>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <ScrollReveal>
+          <p className="mt-10 text-center text-secondary max-w-3xl mx-auto leading-relaxed">
+            {content.whyChoose.footer}
+          </p>
+        </ScrollReveal>
+      </section>
+
+      {/* ── Our Story ─────────────────────────────────────────────────── */}
+      <section className="bg-background py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <h2 className="text-3xl sm:text-4xl font-light text-primary text-center">
+              Our <span className="font-bold">Story</span>
+            </h2>
+          </ScrollReveal>
+          <div className="mt-8 max-w-3xl mx-auto space-y-4">
+            {content.ourStory.paragraphs.map((p, i) => (
+              <ScrollReveal key={i}>
+                <p className="text-secondary leading-relaxed">{p}</p>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Our Promise ───────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <ScrollReveal>
+          <h2 className="text-3xl sm:text-4xl font-light text-primary text-center">
+            Our <span className="font-bold">Promise</span>
+          </h2>
+        </ScrollReveal>
+        <div className="mt-8 max-w-3xl mx-auto space-y-4">
+          {content.ourPromise.paragraphs.map((p, i) => (
+            <ScrollReveal key={i}>
+              <p className="text-secondary leading-relaxed">{p}</p>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 

@@ -34,13 +34,13 @@ The six sections ("What We Assemble"):
 
 ## 5. About Page: Real company story
 
-- [ ] Replace the current hallucinated text with the actual company story
-- [ ] Get real information from the owner about the company history and mission
+- [x] Replace the current hallucinated text with the actual company story
+- [x] Get real information from the owner about the company history and mission
 
 ## 6. About Page: Owner photo
 
-- [ ] Replace the wardrobe photo with an actual photo of the company owner
-- [ ] Need owner to provide their photo
+- [x] Replace the wardrobe photo with an actual photo of the company owner
+- [x] Need owner to provide their photo
 
 ## 7. New Page: Prices
 
