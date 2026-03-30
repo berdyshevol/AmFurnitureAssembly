@@ -9,9 +9,10 @@ A new `/pricing` page for AM Furniture Assembly that displays flat-rate per-item
 ### 1. Hero Banner
 
 - Same pattern as Services/About pages: dark overlay on background image, centered text
+- Background image: `/photos/IMG_2705.jpeg` (same as Services page — reuse since it shows assembled furniture)
 - Title: "Assembly **Pricing**"
 - Subtitle: "Transparent, flat-rate pricing. No hidden fees. Know exactly what you'll pay before we start."
-- Height: 340px mobile, 420px desktop
+- Height: `h-[340px] sm:h-[420px]`
 
 ### 2. Bundle & Save Banner
 
@@ -67,10 +68,8 @@ A new `/pricing` page for AM Furniture Assembly that displays flat-rate per-item
 
 ### 5. CTA Section
 
-- Reuse existing `CTASection` component
-- "Ready to **Get Started?**"
-- "Contact us for a free estimate. Same-day and next-day assembly available."
-- Button: "Get Free Estimate" → `/contact`
+- Reuse existing `CTASection` component with its default hardcoded text (no prop changes needed)
+- The default text ("Ready to Get Your Furniture Assembled?" / "Get a Free Quote") is appropriate for this page
 
 ## Technical Implementation
 
@@ -81,8 +80,8 @@ A new `/pricing` page for AM Furniture Assembly that displays flat-rate per-item
 
 ### Files to Modify
 
-- `components/Navbar.tsx` — Add "Pricing" link to navigation
-- `components/Footer.tsx` — Add "Pricing" link to footer nav
+- `components/Navbar.tsx` — Add "Pricing" link after "Services" in `navLinks` array
+- `components/Footer.tsx` — Add "Pricing" link after "Services" in `quickLinks` array
 - `app/sitemap.ts` — Add `/pricing` route
 
 ### Data Structure
@@ -93,7 +92,7 @@ interface PricingItem {
   name: string
   price: string        // e.g. "$40" or "$50 – $100"
   fromPrice?: boolean  // shows "from" prefix
-  icon: string         // SVG icon identifier
+  icon: React.ReactNode // Inline SVG JSX element
   isLargeProject?: boolean
   pcsNote?: string     // e.g. "(4 pcs)"
 }
@@ -107,10 +106,12 @@ interface BundleTier {
 
 ### SVG Icons
 
-- All icons are inline SVG, 48x48 viewBox
+- All icons are inline SVG React components defined in `lib/pricing-data.ts` as JSX
+- Each `PricingItem.icon` is a `React.ReactNode` (not a string)
+- viewBox: `0 0 48 48`, rendered at 48x48px
 - Style: stroke-only, stroke-width 1.5, no fill, round line caps/joins
-- Color: `#212529` (primary)
-- 13 unique icons, one per pricing item
+- Color: `currentColor` (inherits from parent, defaults to `#212529`)
+- 13 unique hand-drawn SVG icons — actual SVG paths are in the approved mockup at `.superpowers/brainstorm/35120-1774832418/pricing-detailed-v2.html`
 
 ### Animations
 
@@ -122,13 +123,15 @@ interface BundleTier {
 
 - Page title: "Pricing | AM Furniture Assembly"
 - Meta description: "Transparent flat-rate pricing for furniture assembly in Denton, TX. Chairs from $40, beds from $75, desks from $65. Bundle discounts up to 20%."
-- Add StructuredData component with Service schema
+- Add StructuredData component with `Service` schema including `offers` array with `Offer` items for each pricing item (name, price, priceCurrency: "USD")
 
 ### Responsive Behavior
 
-- **Desktop (>900px)**: 4-column price grid, 3 bundle tiers in row
-- **Tablet (640-900px)**: 3-column price grid, tiers wrap if needed
-- **Mobile (<640px)**: 2-column price grid, tiers stack vertically
+Uses standard Tailwind breakpoints (`sm:640px`, `md:768px`, `lg:1024px`):
+
+- **Desktop (lg+)**: 4-column price grid, 3 bundle tiers in row
+- **Tablet (sm–lg)**: 3-column price grid, tiers in row
+- **Mobile (<sm)**: 2-column price grid, tiers stack vertically
 
 ## Design Tokens (from existing system)
 
