@@ -55,6 +55,7 @@ export default function Home() {
                 icon={service.icon}
                 title={service.title}
                 description={service.description}
+                href={`/gallery?category=${service.galleryCategory}`}
               />
             </ScrollReveal>
           ))}

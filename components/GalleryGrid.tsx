@@ -10,10 +10,11 @@ import { categories, type GalleryPhoto, type PhotoCategory } from '@/lib/gallery
 interface GalleryGridProps {
   photos: GalleryPhoto[]
   showFilter?: boolean
+  initialCategory?: PhotoCategory | 'all'
 }
 
-export default function GalleryGrid({ photos, showFilter = true }: GalleryGridProps) {
-  const [activeCategory, setActiveCategory] = useState<PhotoCategory | 'all'>('all')
+export default function GalleryGrid({ photos, showFilter = true, initialCategory = 'all' }: GalleryGridProps) {
+  const [activeCategory, setActiveCategory] = useState<PhotoCategory | 'all'>(initialCategory)
   const [lightboxIndex, setLightboxIndex] = useState(-1)
 
   const filtered =

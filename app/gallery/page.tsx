@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { galleryPhotos } from '@/lib/gallery-data'
+import { galleryPhotos, categories, type PhotoCategory } from '@/lib/gallery-data'
 import GalleryGrid from '@/components/GalleryGrid'
 
 export const metadata: Metadata = {
@@ -8,7 +8,13 @@ export const metadata: Metadata = {
     'Browse our portfolio of professionally assembled furniture in Denton, TX. Beds, wardrobes, shelving, outdoor structures, and more.',
 }
 
-export default function GalleryPage() {
+const validCategories = categories.map((c) => c.value)
+
+export default async function GalleryPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+  const { category: categoryParam } = await searchParams
+  const initialCategory = validCategories.includes(categoryParam as PhotoCategory | 'all')
+    ? (categoryParam as PhotoCategory | 'all')
+    : 'all'
   return (
     <>
       {/* Hero */}
@@ -26,7 +32,7 @@ export default function GalleryPage() {
       {/* Gallery */}
       <section className="py-16 px-4">
         <div className="mx-auto max-w-7xl">
-          <GalleryGrid photos={galleryPhotos} showFilter={true} />
+          <GalleryGrid photos={galleryPhotos} showFilter={true} initialCategory={initialCategory} />
         </div>
       </section>
     </>

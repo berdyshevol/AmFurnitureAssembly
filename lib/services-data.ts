@@ -4,6 +4,7 @@ export interface Service {
   description: string
   items: string[]
   photo: string
+  galleryCategory: string
 }
 
 export const services: Service[] = [
@@ -21,6 +22,7 @@ export const services: Service[] = [
       'Bedroom sets',
     ],
     photo: '/photos/IMG_2733.jpeg',
+    galleryCategory: 'beds',
   },
   {
     icon: '\u{1F5C4}',
@@ -36,6 +38,7 @@ export const services: Service[] = [
       'Vanities',
     ],
     photo: '/photos/IMG_2663.jpeg',
+    galleryCategory: 'wardrobes',
   },
   {
     icon: '\u{1FA91}',
@@ -51,6 +54,7 @@ export const services: Service[] = [
       'Wall-mounted units',
     ],
     photo: '/photos/IMG_2705.jpeg',
+    galleryCategory: 'shelves',
   },
   {
     icon: '\u{1F3E2}',
@@ -66,6 +70,7 @@ export const services: Service[] = [
       'Conference tables',
     ],
     photo: '/photos/4671844090193262260.jpeg',
+    galleryCategory: 'other',
   },
   {
     icon: '\u{1F333}',
@@ -81,6 +86,7 @@ export const services: Service[] = [
       'Garden structures',
     ],
     photo: '/photos/IMG_2763.jpeg',
+    galleryCategory: 'outdoor',
   },
   {
     icon: '\u{1F527}',
@@ -96,5 +102,6 @@ export const services: Service[] = [
       'Pottery Barn & Crate & Barrel',
     ],
     photo: '/photos/IMG_2785.jpeg',
+    galleryCategory: 'all',
   },
 ]
