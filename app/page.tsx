@@ -70,6 +70,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Photo Divider ────────────────────────────────────────────── */}
+      <section className="relative h-[280px] sm:h-[340px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/photos/IMG_2735.jpeg"
+          alt="Precision furniture assembly"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 text-center px-4">
+          <ScrollReveal>
+            <h2 className="text-3xl sm:text-4xl font-light text-white leading-tight">
+              Built with <span className="font-bold">Precision.</span> Every Time.
+            </h2>
+            <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
+              Trusted by homeowners across Denton, TX
+            </p>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex items-center rounded-[var(--radius-button)] border border-white/30 bg-white/10 backdrop-blur-sm px-7 py-3 text-sm font-medium text-white transition-all hover:bg-white/20"
+            >
+              Get a Free Quote &rarr;
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ── Gallery Preview ───────────────────────────────────────────── */}
       <section className="bg-background py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
