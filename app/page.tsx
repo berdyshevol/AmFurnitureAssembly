@@ -8,7 +8,7 @@ import ServiceCard from '@/components/ServiceCard'
 import TestimonialCard from '@/components/TestimonialCard'
 import CTASection from '@/components/CTASection'
 import { services } from '@/lib/services-data'
-import { galleryPhotos } from '@/lib/gallery-data'
+import { galleryPhotos, categories } from '@/lib/gallery-data'
 import { testimonials } from '@/lib/testimonials-data'
 
 export const metadata: Metadata = {
@@ -18,11 +18,19 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  const featuredPhotos = galleryPhotos.filter((p) => p.featured)
+  const heroPhoto = galleryPhotos.find((p) => p.src === '/photos/IMG_2670.jpeg')!
+  const featuredPhotos = galleryPhotos.filter(
+    (p) => p.featured && p.src !== heroPhoto.src
+  )
   const previewPhotos = [
+    heroPhoto,
     ...featuredPhotos,
-    ...galleryPhotos.filter((p) => !p.featured),
-  ].slice(0, 7)
+    ...galleryPhotos.filter((p) => !p.featured && p.src !== heroPhoto.src),
+  ].slice(0, 6)
+
+  const categoryLabels: Record<string, string> = Object.fromEntries(
+    categories.filter((c) => c.value !== 'all').map((c) => [c.value, c.label])
+  )
 
   return (
     <>
@@ -75,29 +83,42 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {/* Desktop: 1 large (2col×2row) + 2 right + 3 bottom */}
+          {/* Mobile: 2-column uniform grid */}
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:grid-rows-[1fr_1fr_auto]">
             {previewPhotos.map((photo, i) => (
-              <Link
+              <ScrollReveal
                 key={photo.src}
-                href="/gallery"
-                className={`relative block overflow-hidden rounded-[var(--radius-card)] ${
+                delay={i * 0.1}
+                className={
                   i === 0
-                    ? 'col-span-2 row-span-2 aspect-square'
-                    : 'aspect-[4/3]'
-                }`}
+                    ? 'col-span-2 sm:col-span-2 sm:row-span-2'
+                    : ''
+                }
               >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes={
-                    i === 0
-                      ? '(max-width: 640px) 100vw, 50vw'
-                      : '(max-width: 640px) 50vw, 25vw'
-                  }
-                  className="object-cover transition-transform duration-300 hover:scale-[1.03]"
-                />
-              </Link>
+                <Link
+                  href="/gallery"
+                  className={`group relative block overflow-hidden rounded-[var(--radius-card)] ${
+                    i === 0 ? 'aspect-square sm:aspect-auto sm:h-full' : 'aspect-[4/3]'
+                  }`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes={
+                      i === 0
+                        ? '(max-width: 640px) 100vw, 66vw'
+                        : '(max-width: 640px) 50vw, 33vw'
+                    }
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="absolute bottom-3 left-3 text-sm font-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    {categoryLabels[photo.category] ?? photo.category}
+                  </span>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
 

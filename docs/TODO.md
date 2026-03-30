@@ -12,7 +12,7 @@
 - [x] photos are in the following files in photos folder: banner1.png, banner2.png, banner3.png
 - [x] Should be visually stunning and inviting — sets the tone for the site
 
-## 3. Home Page: Make category sections clickable
+## 3. Home Page: Make category sections clickable - done
 
 The six sections ("What We Assemble"):
 
@@ -28,9 +28,9 @@ The six sections ("What We Assemble"):
 
 ## 4. Home Page: Fix "Our Recent Work" layout
 
-- [ ] Redesign the photo layout in the "Our Recent Work" section
-- [ ] Use UI/UX best practices (consider using frontend-design skill)
-- [ ] Ensure responsive, visually balanced grid
+- [x] Redesign the photo layout in the "Our Recent Work" section
+- [x] Use UI/UX best practices (consider using frontend-design skill)
+- [x] Ensure responsive, visually balanced grid
 
 ## 5. About Page: Real company story
 
