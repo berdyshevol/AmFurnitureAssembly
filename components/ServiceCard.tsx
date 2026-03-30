@@ -1,7 +1,9 @@
 import Link from 'next/link'
 
+import type { ReactNode } from 'react'
+
 interface ServiceCardProps {
-  icon: string
+  icon: ReactNode
   title: string
   description: string
   href?: string
@@ -10,7 +12,7 @@ interface ServiceCardProps {
 function CardContent({ icon, title, description }: Omit<ServiceCardProps, 'href'>) {
   return (
     <>
-      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-2xl text-white">
+      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white">
         {icon}
       </div>
       <h3 className="mt-5 text-lg font-semibold text-primary">{title}</h3>

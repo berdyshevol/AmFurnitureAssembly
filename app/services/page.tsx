@@ -82,7 +82,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="p-6 sm:p-8">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{service.icon}</span>
+                    <span className="text-primary">{service.icon}</span>
                     <h3 className="text-xl font-semibold text-primary">
                       {service.title}
                     </h3>
