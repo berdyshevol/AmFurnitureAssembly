@@ -71,6 +71,24 @@ export const aboutPageContent = {
   cta: "If you are looking for furniture assembly Dallas, IKEA furniture assembly Fort Worth, or wardrobe installation Texas, contact AM Furniture Assembly today. Let us make your furniture perfectly assembled, safe, and ready to use, with no scratches, no stress, and complete satisfaction.",
 } as const;
 
+/**
+ * CTA button labels — each slot maps to a specific button instance on the site.
+ * Swap any value to one of: "Get a Free Quote", "Check Availability", "Book Your Assembly Now"
+ */
+export const ctaLabels = {
+  navbarDesktop: 'Get a Free Quote',
+  navbarMobile: 'Get a Free Quote',
+  heroCarousel: 'Check Availability',
+  homePhotoDivider: 'Book Your Assembly Now',
+  ctaHome: 'Get a Free Quote',
+  ctaAbout: 'Check Availability',
+  ctaServices: 'Book Your Assembly Now',
+  ctaPricing: 'Check Availability',
+  ctaTestimonials: 'Book Your Assembly Now',
+} as const;
+
+export type CtaSlot = keyof typeof ctaLabels;
+
 export const heroSlides = [
   {
     src: '/photos/banner2.png',

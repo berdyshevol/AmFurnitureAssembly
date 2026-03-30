@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { ctaLabels } from '@/lib/config'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -62,7 +63,7 @@ export default function Navbar() {
               href="/contact"
               className="inline-flex items-center rounded-[var(--radius-button)] bg-primary px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
-              Get a Free Quote
+              {ctaLabels.navbarDesktop}
             </Link>
           </div>
 
@@ -128,7 +129,7 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="mt-6 inline-flex justify-center rounded-[var(--radius-button)] bg-primary px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
               >
-                Get a Free Quote
+                {ctaLabels.navbarMobile}
               </Link>
             </div>
           </div>

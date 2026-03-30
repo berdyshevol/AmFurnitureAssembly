@@ -7,6 +7,7 @@ import StatsBar from '@/components/StatsBar'
 import ServiceCard from '@/components/ServiceCard'
 import TestimonialCard from '@/components/TestimonialCard'
 import CTASection from '@/components/CTASection'
+import { ctaLabels } from '@/lib/config'
 import { services } from '@/lib/services-data'
 import { galleryPhotos, categories } from '@/lib/gallery-data'
 import { testimonials } from '@/lib/testimonials-data'
@@ -91,7 +92,7 @@ export default function Home() {
               href="/contact"
               className="mt-6 inline-flex items-center rounded-[var(--radius-button)] border border-white/30 bg-white/10 backdrop-blur-sm px-7 py-3 text-sm font-medium text-white transition-all hover:bg-white/20"
             >
-              Get a Free Quote &rarr;
+              {ctaLabels.homePhotoDivider} &rarr;
             </Link>
           </ScrollReveal>
         </div>

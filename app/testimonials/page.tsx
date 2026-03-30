@@ -77,7 +77,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* CTA */}
-      <CTASection />
+      <CTASection slot="ctaTestimonials" />
     </>
   )
 }

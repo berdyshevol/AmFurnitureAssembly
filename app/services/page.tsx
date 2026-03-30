@@ -175,7 +175,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <CTASection />
+      <CTASection slot="ctaServices" />
     </>
   )
 }

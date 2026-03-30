@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
+import { ctaLabels, type CtaSlot } from '@/lib/config'
 
-export default function CTASection() {
+export default function CTASection({ slot = 'ctaHome' }: { slot?: CtaSlot }) {
   return (
     <section className="bg-primary py-20 px-4">
       <ScrollReveal className="mx-auto max-w-2xl text-center">
@@ -16,7 +17,7 @@ export default function CTASection() {
           href="/contact"
           className="mt-8 inline-flex items-center rounded-[var(--radius-button)] bg-white px-8 py-3 text-sm font-medium text-primary transition-opacity hover:opacity-90"
         >
-          Get a Free Quote &rarr;
+          {ctaLabels[slot]} &rarr;
         </Link>
       </ScrollReveal>
     </section>

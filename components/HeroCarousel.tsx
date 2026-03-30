@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { heroSlides } from '@/lib/config'
+import { heroSlides, ctaLabels } from '@/lib/config'
 
 const AUTOPLAY_MS = 5500
 
@@ -79,7 +79,7 @@ export default function HeroCarousel() {
                 href="/contact"
                 className="inline-flex items-center rounded-[var(--radius-button)] bg-primary px-7 py-3.5 text-sm font-medium text-white transition-all hover:opacity-90 hover:shadow-lg hover:shadow-primary/20"
               >
-                Get a Free Quote &rarr;
+                {ctaLabels.heroCarousel} &rarr;
               </Link>
               <Link
                 href="/gallery"

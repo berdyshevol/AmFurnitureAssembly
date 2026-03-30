@@ -157,7 +157,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <CTASection />
+      <CTASection slot="ctaAbout" />
     </>
   )
 }
