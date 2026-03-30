@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { testimonials } from '@/lib/testimonials-data'
 import TestimonialCard from '@/components/TestimonialCard'
 import ScrollReveal from '@/components/ScrollReveal'
@@ -14,12 +15,20 @@ export default function TestimonialsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-background py-20 px-4 text-center">
-        <div className="mx-auto max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl font-light text-primary leading-tight">
+      <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/photos/IMG_2736.jpeg"
+          alt="Assembled outdoor playground structure"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-4xl sm:text-5xl font-light text-white leading-tight">
             What Our Clients <span className="font-bold">Say</span>
           </h1>
-          <p className="mt-4 text-lg text-secondary">
+          <p className="mt-4 text-lg text-white/80">
             30 five-star reviews and counting
           </p>
         </div>

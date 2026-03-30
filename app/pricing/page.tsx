@@ -17,7 +17,7 @@ export default function PricingPage() {
       {/* ── Hero Banner ───────────────────────────────────────────────── */}
       <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/photos/IMG_2705.jpeg"
+          src="/photos/IMG_2734.jpeg"
           alt="Professional furniture assembly workspace"
           fill
           className="object-cover"

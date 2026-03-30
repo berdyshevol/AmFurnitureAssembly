@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { galleryPhotos, categories, type PhotoCategory } from '@/lib/gallery-data'
 import GalleryGrid from '@/components/GalleryGrid'
 
@@ -18,12 +19,20 @@ export default async function GalleryPage({ searchParams }: { searchParams: Prom
   return (
     <>
       {/* Hero */}
-      <section className="bg-background py-20 px-4 text-center">
-        <div className="mx-auto max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl font-light text-primary leading-tight">
+      <section className="relative h-[340px] sm:h-[420px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/photos/IMG_2763.jpeg"
+          alt="Outdoor playground assembly by AM Furniture"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-4xl sm:text-5xl font-light text-white leading-tight">
             Our <span className="font-bold">Work</span>
           </h1>
-          <p className="mt-4 text-lg text-secondary">
+          <p className="mt-4 text-lg text-white/80">
             Browse our portfolio of professionally assembled furniture
           </p>
         </div>
