@@ -11,6 +11,51 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      {/* ── Mobile-only: simplified call/text ── */}
+      <div className="md:hidden">
+        {/* Dark hero header */}
+        <section className="bg-primary px-6 py-16 text-center text-white">
+          <p className="text-xs uppercase tracking-[0.2em] opacity-70">
+            {siteConfig.shortName}
+          </p>
+          <h1 className="mt-3 text-3xl font-light leading-tight">
+            Ready to <span className="font-bold">Start?</span>
+          </h1>
+          <p className="mt-2 text-sm opacity-60">One tap away</p>
+        </section>
+
+        {/* Content: phone + buttons */}
+        <section className="px-6 py-10 text-center">
+          <p className="text-3xl font-bold text-primary">
+            {siteConfig.phone}
+          </p>
+
+          <div className="mt-8 space-y-3">
+            <a
+              href={siteConfig.phoneTel}
+              className="block w-full rounded-[var(--radius-button)] bg-primary px-6 py-4 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            >
+              Call Now
+            </a>
+            <a
+              href={siteConfig.smsTel}
+              className="block w-full rounded-[var(--radius-button)] border-2 border-primary px-6 py-4 text-center text-sm font-semibold text-primary transition-opacity hover:opacity-80"
+            >
+              Send a Text
+            </a>
+          </div>
+
+          <div className="mt-8 space-y-1 text-xs text-secondary">
+            <p>{siteConfig.hours.weekdays}</p>
+            <p>{siteConfig.hours.saturday}</p>
+            <p>{siteConfig.hours.sunday}</p>
+            <p className="mt-2">{siteConfig.location}</p>
+          </div>
+        </section>
+      </div>
+
+      {/* ── Desktop/tablet: existing layout ── */}
+      <div className="hidden md:block">
       {/* Hero */}
       <section className="bg-background py-20 px-4 text-center">
         <div className="mx-auto max-w-3xl">
@@ -153,6 +198,7 @@ export default function ContactPage() {
           {siteConfig.phone}
         </a>
       </section>
+      </div>
     </>
   )
 }
