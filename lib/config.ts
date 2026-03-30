@@ -3,6 +3,7 @@ export const siteConfig = {
   shortName: "AM Furniture Assembly",
   phone: "(940) 222-0263",
   phoneTel: "tel:+19402220263",
+  smsTel: "sms:+19402220263",
   email: "andrimohilev@gmail.com",
   location: "Denton, TX",
   hours: {
