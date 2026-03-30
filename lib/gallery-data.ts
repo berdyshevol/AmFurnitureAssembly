@@ -168,6 +168,16 @@ export const galleryPhotos: GalleryPhoto[] = [
     alt: 'Small wooden shed with black and white finish',
     category: 'outdoor',
   },
+  {
+    src: '/photos/outdoor.jpeg',
+    alt: 'Custom outdoor furniture piece',
+    category: 'outdoor',
+  },
+  {
+    src: '/photos/outdoor2.jpeg',
+    alt: 'Custom outdoor furniture design',
+    category: 'outdoor',
+  },
 
   // ── Other ─────────────────────────────────────────────────────────────
   {
