@@ -12,7 +12,7 @@ interface ServiceCardProps {
 function CardContent({ icon, title, description }: Omit<ServiceCardProps, 'href'>) {
   return (
     <>
-      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white">
+      <div className="text-primary">
         {icon}
       </div>
       <h3 className="mt-5 text-lg font-semibold text-primary">{title}</h3>

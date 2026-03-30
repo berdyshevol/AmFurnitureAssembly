@@ -109,10 +109,8 @@ export default function PricingPage() {
                       : 'bg-white border-border'
                   }`}
                 >
-                  <div className="mb-4 flex justify-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white">
-                      {item.icon}
-                    </div>
+                  <div className="mb-4 flex justify-center text-primary">
+                    {item.icon}
                   </div>
                   <div className="text-sm font-semibold text-primary mb-2">
                     {item.name}
