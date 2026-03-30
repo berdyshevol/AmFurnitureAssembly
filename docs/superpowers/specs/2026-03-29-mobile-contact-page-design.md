@@ -23,7 +23,7 @@ No new components or files are created (except the config change). The existing 
 
 ### Dark Hero Header
 - Full-width section with `bg-primary` (#212529), white text
-- Company name in small uppercase with letter-spacing
+- Company short name (`siteConfig.shortName` — "AM Furniture Assembly") in small uppercase with letter-spacing
 - Heading: "Ready to **Start?**" (font-light base, font-bold on "Start?")
 - Subtitle: "One tap away" in smaller muted text
 
@@ -31,7 +31,7 @@ No new components or files are created (except the config change). The existing 
 - Phone number displayed large and bold, centered — from `siteConfig.phone`
 - **"Call Now" button**: full-width, `bg-primary`, white text, wraps an `<a href={siteConfig.phoneTel}>` link
 - **"Send a Text" button**: full-width, white background, dark border, wraps an `<a href={siteConfig.smsTel}>` link
-- Below buttons: business hours and location in small muted text, sourced from `siteConfig`
+- Below buttons: business hours from `siteConfig.hours` (weekdays, saturday, sunday) and location from `siteConfig.location`, in small muted text
 
 ### What is hidden on mobile
 - The contact form (`ContactForm` component)
