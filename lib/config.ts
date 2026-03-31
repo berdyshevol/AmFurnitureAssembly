@@ -7,7 +7,7 @@ export const siteConfig = {
   phoneTel: "tel:+19402220263",
   smsTel: "sms:+19402220263",
   email: "andrimohilev@gmail.com",
-  location: "Denton, TX",
+  location: "Dallas-Fort Worth",
   hours: {
     weekdays: "Mon - Fri: 8am - 7pm",
     saturday: "Sat: 9am - 5pm",
@@ -184,20 +184,20 @@ export const openGraphConfig = {
     url: '/photos/IMG_2729.jpeg',
     width: 1200,
     height: 630,
-    alt: 'AM Furniture Assembly - Professional Furniture Assembly in Denton, TX',
+    alt: 'AM Furniture Assembly - Professional Furniture Assembly in Dallas-Fort Worth, TX',
   },
 } as const;
 
 export const pageMetadata = {
   layout: {
-    title: 'AM Furniture Assembly | Professional Furniture Assembly in Denton, TX',
+    title: 'AM Furniture Assembly | Professional Furniture Assembly in Dallas-Fort Worth, TX',
     description:
-      'Expert furniture assembly service in Denton, TX. We assemble IKEA, Wayfair, Amazon, and all major brands. 30 five-star reviews. Starting at $40. Get a free quote today!',
+      'Expert furniture assembly service in Dallas-Fort Worth, TX. We assemble IKEA, Wayfair, Amazon, and all major brands. 30 five-star reviews. Starting at $40. Get a free quote today!',
   },
   home: {
-    title: 'AM Furniture Assembly | Professional Furniture Assembly in Denton, TX',
+    title: 'AM Furniture Assembly | Professional Furniture Assembly in Dallas-Fort Worth, TX',
     description:
-      'Expert furniture assembly service in Denton, TX. From IKEA to Wayfair, we assemble all brands with precision and care. Same-day service available.',
+      'Expert furniture assembly service in Dallas-Fort Worth, TX. From IKEA to Wayfair, we assemble all brands with precision and care. Next-day service available.',
   },
   about: {
     title: 'About AM Furniture Assembly | Dallas-Fort Worth, Texas',
@@ -207,32 +207,32 @@ export const pageMetadata = {
   services: {
     title: 'Our Services | AM Furniture Assembly',
     description:
-      'Professional furniture assembly services in Denton, TX. Beds, wardrobes, shelving, office furniture, outdoor structures, and more. All major brands.',
+      'Professional furniture assembly services in Dallas-Fort Worth, TX. Beds, wardrobes, shelving, office furniture, outdoor structures, and more. All major brands.',
   },
   pricing: {
     title: 'Pricing | AM Furniture Assembly',
     description:
-      'Transparent flat-rate pricing for furniture assembly in Denton, TX. Chairs from $40, beds from $75, desks from $65. Bundle discounts up to 20%.',
+      'Transparent flat-rate pricing for furniture assembly in Dallas-Fort Worth, TX. Chairs from $40, beds from $75, desks from $65. Bundle discounts up to 20%.',
   },
   gallery: {
     title: 'Our Work | AM Furniture Assembly',
     description:
-      'Browse our portfolio of professionally assembled furniture in Denton, TX. Beds, wardrobes, shelving, outdoor structures, and more.',
+      'Browse our portfolio of professionally assembled furniture in Dallas-Fort Worth, TX. Beds, wardrobes, shelving, outdoor structures, and more.',
   },
   testimonials: {
     title: 'Testimonials | AM Furniture Assembly',
     description:
-      'Read what our customers say about AM Furniture Assembly. 30 five-star reviews on Thumbtack from satisfied clients in Denton, TX.',
+      'Read what our customers say about AM Furniture Assembly. 30 five-star reviews on Thumbtack from satisfied clients in Dallas-Fort Worth, TX.',
   },
   contact: {
     title: 'Contact Us | AM Furniture Assembly',
     description:
-      'Get a free quote for furniture assembly in Denton, TX. Contact AM Furniture Assembly by phone, email, or our online form.',
+      'Get a free quote for furniture assembly in Dallas-Fort Worth, TX. Contact AM Furniture Assembly by phone, email, or our online form.',
   },
   blog: {
     title: 'Blog & FAQ | AM Furniture Assembly',
     description:
-      'Tips, guides, and frequently asked questions about professional furniture assembly in Denton, TX.',
+      'Tips, guides, and frequently asked questions about professional furniture assembly in Dallas-Fort Worth, TX.',
   },
 } as const;
 

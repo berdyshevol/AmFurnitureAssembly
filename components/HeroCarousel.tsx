@@ -58,7 +58,7 @@ export default function HeroCarousel() {
             className="relative z-20 text-center lg:text-left"
           >
             <span className="inline-block rounded-full bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-5">
-              {siteConfig.location} &middot; Same-Day Service
+              Dallas-Fort Worth &middot; Next-Day Service
             </span>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-light leading-[1.1] text-primary tracking-tight">
