@@ -239,7 +239,7 @@ export const pageMetadata = {
 export const pageHeroes = {
   about: { src: '/photos/IMG_2672.jpeg', alt: 'Cabinet assembly in progress' },
   services: { src: '/photos/IMG_2705.jpeg', alt: 'White open shelving unit assembled by AM Furniture Assembly' },
-  pricing: { src: '/photos/IMG_2447.jpeg', alt: 'Small black cabinet with rattan woven doors' },
+  pricing: { src: '/photos/IMG_2736_1.png', alt: 'Modern wall-mounted storage unit with wood and white finish' },
   gallery: { src: '/photos/IMG_2763.jpeg', alt: 'Outdoor playground assembly by AM Furniture' },
   testimonials: { src: '/photos/IMG_2301.jpeg', alt: 'Kitchen island sideboard with white cabinet and wood countertop' },
   homeDivider: { src: '/photos/IMG_2621.jpeg', alt: 'Outdoor patio glider bench with cushions' },
