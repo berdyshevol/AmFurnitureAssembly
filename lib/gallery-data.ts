@@ -59,6 +59,16 @@ export const galleryPhotos: GalleryPhoto[] = [
     alt: 'Black metal bed frame with vertical bar design',
     category: 'beds',
   },
+  {
+    src: '/photos/IMG_1642.jpeg',
+    alt: 'Yellow and navy blue children\'s bed frame with slat base',
+    category: 'beds',
+  },
+  {
+    src: '/photos/IMG_2268.jpeg',
+    alt: 'Gray upholstered bed frame with wooden nightstands',
+    category: 'beds',
+  },
 
   // ── Wardrobes & Dressers ──────────────────────────────────────────────
   {
@@ -102,6 +112,31 @@ export const galleryPhotos: GalleryPhoto[] = [
     alt: 'Small black cabinet with rattan woven doors',
     category: 'wardrobes',
   },
+  {
+    src: '/photos/IMG_1674.jpeg',
+    alt: 'Black chevron-pattern cabinet with gold handles',
+    category: 'wardrobes',
+  },
+  {
+    src: '/photos/IMG_2379.jpeg',
+    alt: 'Black three-door wardrobe',
+    category: 'wardrobes',
+  },
+  {
+    src: '/photos/IMG_2447_2.jpeg',
+    alt: 'Black cabinet with rattan woven panel doors',
+    category: 'wardrobes',
+  },
+  {
+    src: '/photos/IMG_2524.jpeg',
+    alt: 'White 12-compartment dresser with gold handles',
+    category: 'wardrobes',
+  },
+  {
+    src: '/photos/IMG_2613.jpeg',
+    alt: 'Dark teal dresser with brass handles',
+    category: 'wardrobes',
+  },
 
   // ── Shelves & Storage ─────────────────────────────────────────────────
   {
@@ -140,6 +175,11 @@ export const galleryPhotos: GalleryPhoto[] = [
     alt: 'Wood and metal shelving system with cabinet',
     category: 'shelves',
   },
+  {
+    src: '/photos/IMG_2667.jpeg',
+    alt: 'White and wood wall-mounted shelving unit',
+    category: 'shelves',
+  },
 
   // ── Outdoor ───────────────────────────────────────────────────────────
   {
@@ -176,6 +216,21 @@ export const galleryPhotos: GalleryPhoto[] = [
   {
     src: '/photos/outdoor2.jpeg',
     alt: 'Custom outdoor furniture design',
+    category: 'outdoor',
+  },
+  {
+    src: '/photos/IMG_2621.jpeg',
+    alt: 'Outdoor patio glider bench with cushions',
+    category: 'outdoor',
+  },
+  {
+    src: '/photos/IMG_2790.jpeg',
+    alt: 'Black outdoor smoker grill assembly',
+    category: 'outdoor',
+  },
+  {
+    src: '/photos/IMG_2791.jpeg',
+    alt: 'Black outdoor grill assembly side view',
     category: 'outdoor',
   },
 
@@ -219,6 +274,26 @@ export const galleryPhotos: GalleryPhoto[] = [
   {
     src: '/photos/IMG_2448.jpeg',
     alt: 'Black leather Eames-style lounge chair with ottoman',
+    category: 'other',
+  },
+  {
+    src: '/photos/IMG_2617.jpeg',
+    alt: 'Green ornate TV stand with decorative panel doors',
+    category: 'other',
+  },
+  {
+    src: '/photos/IMG_2669_2.jpeg',
+    alt: 'Pair of rustic gray nightstands with drawers',
+    category: 'other',
+  },
+  {
+    src: '/photos/IMG_2686_2.jpeg',
+    alt: 'Pair of dark walnut modern nightstands',
+    category: 'other',
+  },
+  {
+    src: '/photos/IMG_2687.jpeg',
+    alt: 'Set of three round wooden tambour coffee tables',
     category: 'other',
   },
 ]
