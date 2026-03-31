@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import { ctaLabels, navLinks } from '@/lib/config'
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ctaLabels, navLinks } from "@/lib/config";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const pathname = usePathname()
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-border">
@@ -17,11 +17,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/logo-cropped.jpg"
+              src="/photos/logo-vector3.svg"
               alt="AM Furniture Assembly"
-              width={133}
-              height={100}
-              className="h-[60px] w-auto"
+              width={400}
+              height={120}
+              className="h-[90px] w-auto"
               priority
             />
           </Link>
@@ -29,20 +29,20 @@ export default function Navbar() {
           {/* Desktop nav links */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href
+              const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={`px-3 py-2 text-sm transition-colors ${
                     isActive
-                      ? 'font-semibold text-primary border-b-2 border-primary'
-                      : 'text-secondary hover:text-primary'
+                      ? "font-semibold text-primary border-b-2 border-primary"
+                      : "text-secondary hover:text-primary"
                   }`}
                 >
                   {link.label}
                 </Link>
-              )
+              );
             })}
           </div>
 
@@ -96,7 +96,7 @@ export default function Navbar() {
             {/* Links */}
             <div className="flex flex-col px-6 gap-1">
               {navLinks.map((link) => {
-                const isActive = pathname === link.href
+                const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.href}
@@ -104,13 +104,13 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className={`py-3 text-base border-b border-border transition-colors ${
                       isActive
-                        ? 'font-semibold text-primary'
-                        : 'text-secondary hover:text-primary'
+                        ? "font-semibold text-primary"
+                        : "text-secondary hover:text-primary"
                     }`}
                   >
                     {link.label}
                   </Link>
-                )
+                );
               })}
 
               <Link
@@ -125,5 +125,5 @@ export default function Navbar() {
         </div>
       )}
     </nav>
-  )
+  );
 }

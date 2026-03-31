@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { siteConfig, footerLinks } from '@/lib/config'
+import Link from "next/link";
+import Image from "next/image";
+import { siteConfig, footerLinks } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -10,10 +10,10 @@ export default function Footer() {
           {/* Col 1: Logo + tagline */}
           <div>
             <Image
-              src="/logo-cropped.jpg"
+              src="/photos/logo-vector3.svg"
               alt="AM Furniture Assembly"
-              width={93}
-              height={70}
+              width={400}
+              height={120}
               className="h-[70px] w-auto"
             />
             <p className="mt-4 text-sm text-secondary leading-relaxed">
@@ -89,5 +89,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
