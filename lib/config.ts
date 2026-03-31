@@ -242,5 +242,5 @@ export const pageHeroes = {
   pricing: { src: '/photos/IMG_2736.jpeg', alt: 'Modern wall-mounted storage unit with wood and white finish' },
   gallery: { src: '/photos/IMG_2763.jpeg', alt: 'Outdoor playground assembly by AM Furniture' },
   testimonials: { src: '/photos/IMG_2301.jpeg', alt: 'Kitchen island sideboard with white cabinet and wood countertop' },
-  homeDivider: { src: '/photos/IMG_2663.jpeg', alt: 'Tall wooden wardrobe with light wood finish' },
+  homeDivider: { src: '/photos/IMG_2621.jpeg', alt: 'Outdoor patio glider bench with cushions' },
 } as const;
