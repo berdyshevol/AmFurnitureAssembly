@@ -1,35 +1,36 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import ScrollReveal from '@/components/ScrollReveal'
-import HeroCarousel from '@/components/HeroCarousel'
-import StatsBar from '@/components/StatsBar'
-import ServiceCard from '@/components/ServiceCard'
-import TestimonialCard from '@/components/TestimonialCard'
-import CTASection from '@/components/CTASection'
-import { ctaLabels, pageMetadata, pageHeroes, siteConfig } from '@/lib/config'
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
+import HeroCarousel from "@/components/HeroCarousel";
+import StatsBar from "@/components/StatsBar";
+import ServiceCard from "@/components/ServiceCard";
+import TestimonialCard from "@/components/TestimonialCard";
+import CTASection from "@/components/CTASection";
+import { ctaLabels, pageMetadata, pageHeroes, siteConfig } from "@/lib/config";
 
+import { services } from "@/lib/services-data";
+import { galleryPhotos, categories } from "@/lib/gallery-data";
+import { testimonials } from "@/lib/testimonials-data";
 
-import { services } from '@/lib/services-data'
-import { galleryPhotos, categories } from '@/lib/gallery-data'
-import { testimonials } from '@/lib/testimonials-data'
-
-export const metadata: Metadata = pageMetadata.home
+export const metadata: Metadata = pageMetadata.home;
 
 export default function Home() {
-  const heroPhoto = galleryPhotos.find((p) => p.src === '/photos/IMG_2670.jpeg')!
+  const heroPhoto = galleryPhotos.find(
+    (p) => p.src === "/photos/IMG_2670.jpeg",
+  )!;
   const featuredPhotos = galleryPhotos.filter(
-    (p) => p.featured && p.src !== heroPhoto.src
-  )
+    (p) => p.featured && p.src !== heroPhoto.src,
+  );
   const previewPhotos = [
     heroPhoto,
     ...featuredPhotos,
     ...galleryPhotos.filter((p) => !p.featured && p.src !== heroPhoto.src),
-  ].slice(0, 6)
+  ].slice(0, 6);
 
   const categoryLabels: Record<string, string> = Object.fromEntries(
-    categories.filter((c) => c.value !== 'all').map((c) => [c.value, c.label])
-  )
+    categories.filter((c) => c.value !== "all").map((c) => [c.value, c.label]),
+  );
 
   return (
     <>
@@ -81,7 +82,8 @@ export default function Home() {
         <div className="relative z-10 text-center px-4">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-4xl font-light text-white leading-tight">
-              Built with <span className="font-bold">Precision.</span> Every Time.
+              Built with <span className="font-bold">Precision.</span> Every
+              Time.
             </h2>
             <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
               Trusted by homeowners across {siteConfig.location}
@@ -105,7 +107,7 @@ export default function Home() {
             </h2>
             <p className="mt-4 text-secondary max-w-2xl mx-auto">
               Browse some of our latest furniture assembly projects across the
-              {siteConfig.location} area.
+              {` ${siteConfig.location}`} area.
             </p>
           </ScrollReveal>
 
@@ -117,15 +119,15 @@ export default function Home() {
                 key={photo.src}
                 delay={i * 0.1}
                 className={
-                  i === 0
-                    ? 'col-span-2 sm:col-span-2 sm:row-span-2'
-                    : ''
+                  i === 0 ? "col-span-2 sm:col-span-2 sm:row-span-2" : ""
                 }
               >
                 <Link
                   href="/gallery"
                   className={`group relative block overflow-hidden rounded-[var(--radius-card)] ${
-                    i === 0 ? 'aspect-square sm:aspect-auto sm:h-full' : 'aspect-[4/3]'
+                    i === 0
+                      ? "aspect-square sm:aspect-auto sm:h-full"
+                      : "aspect-[4/3]"
                   }`}
                 >
                   <Image
@@ -134,8 +136,8 @@ export default function Home() {
                     fill
                     sizes={
                       i === 0
-                        ? '(max-width: 640px) 100vw, 66vw'
-                        : '(max-width: 640px) 50vw, 33vw'
+                        ? "(max-width: 640px) 100vw, 66vw"
+                        : "(max-width: 640px) 50vw, 33vw"
                     }
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                   />
@@ -184,5 +186,5 @@ export default function Home() {
       {/* ── CTA ───────────────────────────────────────────────────────── */}
       <CTASection />
     </>
-  )
+  );
 }
