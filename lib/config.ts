@@ -93,16 +93,16 @@ export type CtaSlot = keyof typeof ctaLabels;
 
 export const heroSlides = [
   {
-    src: '/photos/banner2.png',
-    alt: 'Professional Furniture Assembly — save more with bundle deals: 10% off 1-3 items, 15% off 4-6 items, 20% off 7+ items',
+    src: '/photos/banner4.png',
+    alt: 'Bundle Deal — 10% off 1-3 items, 15% off 4-6 items, 20% off 7 and more',
   },
   {
-    src: '/photos/banner3.png',
-    alt: 'We Are Putting Things Together — same or next day furniture assembly available, call (940) 222-0263',
+    src: '/photos/banner5.png',
+    alt: 'Special Offers for New Furniture Assembly — Dining Table Set $175, Bedroom Set $150, Living Room Set $175',
   },
   {
-    src: '/photos/banner1.png',
-    alt: 'Instant Assembly Magic — modern furniture assembled effortlessly from the box',
+    src: '/photos/banner6.png',
+    alt: 'We Are Putting Things Together — Sofa Chair up to $75, Side Table up to $45, TV Stands up to $125',
   },
 ] as const;
 
