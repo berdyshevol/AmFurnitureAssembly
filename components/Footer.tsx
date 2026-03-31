@@ -14,7 +14,7 @@ export default function Footer() {
               alt="AM Furniture Assembly"
               width={400}
               height={120}
-              className="h-[70px] w-auto"
+              className="h-[90px] w-auto"
             />
             <p className="mt-4 text-sm text-secondary leading-relaxed">
               Professional furniture assembly service you can trust.
