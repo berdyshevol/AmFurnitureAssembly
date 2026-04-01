@@ -181,7 +181,7 @@ export const openGraphConfig = {
   locale: 'en_US',
   siteName: 'AM Furniture Assembly',
   image: {
-    url: '/photos/IMG_2729.jpeg',
+    url: '/photos/logo-vector3.svg',
     width: 1200,
     height: 630,
     alt: 'AM Furniture Assembly - Professional Furniture Assembly in Dallas-Fort Worth, TX',
