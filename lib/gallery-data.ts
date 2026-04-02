@@ -155,12 +155,6 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "other",
   },
   {
-    src: "/photos/IMG_2736.jpeg",
-    alt: "White modular shelving system with compartments",
-    category: "shelves",
-    featured: true,
-  },
-  {
     src: "/photos/IMG_2762.jpeg",
     alt: "Dark brown cabinet with slatted front and open compartment",
     category: "wardrobes",
