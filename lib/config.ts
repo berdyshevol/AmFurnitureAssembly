@@ -255,7 +255,7 @@ export const pageHeroes = {
     alt: "Outdoor playground assembly by AM Furniture",
   },
   testimonials: {
-    src: "/photos/IMG_2301.jpeg",
+    src: "/photos/hero5.png",
     alt: "Kitchen island sideboard with white cabinet and wood countertop",
   },
   homeDivider: {
