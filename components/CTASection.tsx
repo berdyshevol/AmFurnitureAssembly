@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import { ctaLabels, type CtaSlot } from '@/lib/config'
+import { trackCTAClick } from '@/lib/analytics'
 
 export default function CTASection({ slot = 'ctaHome' }: { slot?: CtaSlot }) {
   return (
@@ -15,6 +18,7 @@ export default function CTASection({ slot = 'ctaHome' }: { slot?: CtaSlot }) {
         </p>
         <Link
           href="/contact"
+          onClick={() => trackCTAClick(slot)}
           className="mt-8 inline-flex items-center rounded-[var(--radius-button)] bg-white px-8 py-3 text-sm font-medium text-primary transition-opacity hover:opacity-90"
         >
           {ctaLabels[slot]} &rarr;

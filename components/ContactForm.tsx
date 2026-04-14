@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from 'react'
 
 import { contactFormServiceOptions } from '@/lib/config'
+import { trackFormSubmission } from '@/lib/analytics'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -50,6 +51,7 @@ export default function ContactForm() {
       })
 
       if (res.ok) {
+        trackFormSubmission(formData.get('service') as string)
         setStatus('success')
       } else {
         setStatus('error')
