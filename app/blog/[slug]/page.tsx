@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { siteConfig } from '@/lib/config'
+import JsonLd from '@/components/JsonLd'
+import { blogPostingSchema } from '@/lib/structured-data'
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -25,6 +27,10 @@ export async function generateMetadata({
   return {
     title: `${post.title} | ${siteConfig.shortName}`,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+      types: { 'text/markdown': `/blog/${slug}.md` },
+    },
   }
 }
 
@@ -70,6 +76,7 @@ export default async function BlogPost({
           <MDXRemote source={post.content} />
         </div>
       </article>
+      <JsonLd data={blogPostingSchema(post)} />
     </div>
   )
 }

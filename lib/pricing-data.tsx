@@ -16,9 +16,8 @@ export interface BundleTier {
 }
 
 export const bundleTiers: BundleTier[] = [
-  { discount: '10%', label: '1 – 3 items' },
-  { discount: '15%', label: '4 – 6 items', highlighted: true },
-  { discount: '20%', label: '7+ items' },
+  { discount: '10%', label: '2 – 3 items' },
+  { discount: '15%', label: '4+ items', highlighted: true },
 ]
 
 export const pricingItems: PricingItem[] = [
@@ -232,3 +231,16 @@ export const pricingItems: PricingItem[] = [
     ),
   },
 ]
+
+/** Splits a display price like '50 – 100' into numbers. `max` is absent for single and "from" prices. */
+export function parsePrice(item: PricingItem): { min: number; max?: number } {
+  const [min, max] = item.price.split('–').map((part) => Number(part.trim()))
+  return max ? { min, max } : { min }
+}
+
+/** Plain-text price for markdown and llms.txt, e.g. '$50–100' or 'from $95 (4 pcs)'. */
+export function formatPrice(item: PricingItem): string {
+  const { min, max } = parsePrice(item)
+  const amount = max ? `$${min}–${max}` : `$${min}`
+  return [item.fromPrice ? `from ${amount}` : amount, item.pcsNote].filter(Boolean).join(' ')
+}

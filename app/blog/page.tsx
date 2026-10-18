@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import { faqItems } from '@/lib/faq-data'
 import FAQAccordion from '@/components/FAQAccordion'
+import JsonLd from '@/components/JsonLd'
 import { pageMetadata } from '@/lib/config'
+import { faqPageSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata.blog
 
@@ -72,6 +74,7 @@ export default async function BlogPage() {
           <FAQAccordion items={faqItems} />
         </div>
       </section>
+      <JsonLd data={faqPageSchema(faqItems)} />
     </main>
   )
 }

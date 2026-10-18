@@ -26,7 +26,7 @@ export default function TestimonialsPage() {
             What Our Clients <span className="font-bold">Say</span>
           </h1>
           <p className="mt-4 text-lg text-white/80">
-            30 five-star reviews and counting
+            {reviewSummary.reviewCount} five-star reviews and counting
           </p>
         </div>
       </section>

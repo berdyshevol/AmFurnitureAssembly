@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
-import { aboutPageContent, pageMetadata, pageHeroes } from '@/lib/config'
+import { aboutPageContent, pageMetadata, pageHeroes, siteConfig } from '@/lib/config'
 
 export const metadata: Metadata = pageMetadata.about
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
           <ScrollReveal direction="right">
             <Image
               src="/photos/about.jpg"
-              alt="Andrii Mohylov — founder of AM Furniture Assembly"
+              alt={`${siteConfig.founder} — founder of AM Furniture Assembly`}
               width={600}
               height={750}
               className="rounded-[var(--radius-card)] object-cover w-full"

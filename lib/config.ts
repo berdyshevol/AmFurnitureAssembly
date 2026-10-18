@@ -1,7 +1,8 @@
-export const baseUrl = "https://amfurnitureassembly.com";
+export const baseUrl = "https://am-furnitureassembly.com";
 
 export const siteConfig = {
-  name: "Andrii Mohylov Furniture Assembly",
+  name: "Andrii Mohilov Furniture Assembly",
+  founder: "Andrii Mohilov",
   shortName: "AM Furniture Assembly",
   phone: "(940) 222-0263",
   phoneTel: "tel:+19402220263",
@@ -127,7 +128,7 @@ export const footerLinks = [
 export const stats = [
   { value: 100, suffix: "+", label: "Projects", decimals: 0 },
   { value: 5.0, suffix: "", label: "Thumbtack Rating", decimals: 1 },
-  { value: 30, suffix: "", label: "Five-Star Reviews", decimals: 0 },
+  { value: 60, suffix: "", label: "Five-Star Reviews", decimals: 0 },
   { value: 100, suffix: "%", label: "Satisfaction", decimals: 0 },
 ] as const;
 
@@ -174,7 +175,7 @@ export const brands = [
 
 export const reviewSummary = {
   rating: "5.0",
-  reviewCount: "30",
+  reviewCount: "60",
   priceRange: "$$",
 } as const;
 
@@ -190,53 +191,69 @@ export const openGraphConfig = {
   },
 } as const;
 
+/** Canonical URL plus a link to the page's markdown copy for AI agents. */
+function pageAlternates(path: string) {
+  return {
+    canonical: path,
+    types: { "text/markdown": path === "/" ? "/index.md" : `${path}.md` },
+  };
+}
+
 export const pageMetadata = {
   layout: {
     title:
       "AM Furniture Assembly | Professional Furniture Assembly in Dallas-Fort Worth, TX",
     description:
-      "Expert furniture assembly service in Dallas-Fort Worth, TX. We assemble IKEA, Wayfair, Amazon, and all major brands. 30 five-star reviews. Starting at $40. Get a free quote today!",
+      "Expert furniture assembly service in Dallas-Fort Worth, TX. We assemble IKEA, Wayfair, Amazon, and all major brands. 60 five-star reviews. Starting at $40. Get a free quote today!",
   },
   home: {
     title:
       "AM Furniture Assembly | Professional Furniture Assembly in Dallas-Fort Worth, TX",
     description:
       "Expert furniture assembly service in Dallas-Fort Worth, TX. From IKEA to Wayfair, we assemble all brands with precision and care. Next-day service available.",
+    alternates: pageAlternates("/"),
   },
   about: {
     title: "About AM Furniture Assembly | Dallas-Fort Worth, Texas",
     description:
       "Professional furniture assembly in Dallas-Fort Worth, TX. Over 7 years of experience from Europe. IKEA, wardrobe, office furniture assembly.",
+    alternates: pageAlternates("/about"),
   },
   services: {
     title: "Our Services | AM Furniture Assembly",
     description:
       "Professional furniture assembly services in Dallas-Fort Worth, TX. Beds, wardrobes, shelving, office furniture, outdoor structures, and more. All major brands.",
+    alternates: pageAlternates("/services"),
   },
   pricing: {
     title: "Pricing | AM Furniture Assembly",
     description:
-      "Transparent flat-rate pricing for furniture assembly in Dallas-Fort Worth, TX. Chairs from $40, beds from $75, desks from $65. Bundle discounts up to 20%.",
+      "Transparent flat-rate pricing for furniture assembly in Dallas-Fort Worth, TX. Chairs from $40, beds from $75, desks from $65. Bundle discounts up to 15%.",
+    alternates: pageAlternates("/pricing"),
   },
   gallery: {
     title: "Our Work | AM Furniture Assembly",
     description:
       "Browse our portfolio of professionally assembled furniture in Dallas-Fort Worth, TX. Beds, wardrobes, shelving, outdoor structures, and more.",
+    alternates: pageAlternates("/gallery"),
   },
   testimonials: {
     title: "Testimonials | AM Furniture Assembly",
     description:
-      "Read what our customers say about AM Furniture Assembly. 30 five-star reviews on Thumbtack from satisfied clients in Dallas-Fort Worth, TX.",
+      "Read what our customers say about AM Furniture Assembly. 60 five-star reviews on Thumbtack from satisfied clients in Dallas-Fort Worth, TX.",
+    alternates: pageAlternates("/testimonials"),
   },
   contact: {
     title: "Contact Us | AM Furniture Assembly",
     description:
       "Get a free quote for furniture assembly in Dallas-Fort Worth, TX. Contact AM Furniture Assembly by phone, email, or our online form.",
+    alternates: pageAlternates("/contact"),
   },
   blog: {
     title: "Blog & FAQ | AM Furniture Assembly",
     description:
       "Tips, guides, and frequently asked questions about professional furniture assembly in Dallas-Fort Worth, TX.",
+    alternates: pageAlternates("/blog"),
   },
 } as const;
 

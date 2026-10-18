@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
-import { pageMetadata, openGraphConfig } from "@/lib/config";
+import { baseUrl, pageMetadata, openGraphConfig } from "@/lib/config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,6 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: pageMetadata.layout.title,
   description: pageMetadata.layout.description,
   openGraph: {

@@ -3,8 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
-import { pageMetadata, pageHeroes, siteConfig } from '@/lib/config'
+import JsonLd from '@/components/JsonLd'
+import { pageMetadata, pageHeroes } from '@/lib/config'
 import { bundleTiers, pricingItems } from '@/lib/pricing-data'
+import { pricingSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata.pricing
 
@@ -150,27 +152,7 @@ export default function PricingPage() {
       <CTASection slot="ctaPricing" />
 
       {/* ── Structured Data ───────────────────────────────────────────── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Service',
-            name: 'Furniture Assembly',
-            provider: {
-              '@type': 'LocalBusiness',
-              name: siteConfig.name,
-            },
-            areaServed: siteConfig.location,
-            offers: pricingItems.map((item) => ({
-              '@type': 'Offer',
-              name: `${item.name} Assembly`,
-              price: item.price.split(' – ')[0],
-              priceCurrency: 'USD',
-            })),
-          }),
-        }}
-      />
+      <JsonLd data={pricingSchema()} />
     </>
   )
 }
