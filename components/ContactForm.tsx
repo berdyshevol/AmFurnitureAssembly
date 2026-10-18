@@ -43,20 +43,21 @@ export default function ContactForm() {
     setErrors({})
     setStatus('loading')
 
-    try {
-      const res = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
+    // Email (Formspree) and Telegram are sent in parallel; the lead counts as delivered if either succeeds.
+    const deliveries = await Promise.allSettled([
+      fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
         method: 'POST',
         body: formData,
         headers: { Accept: 'application/json' },
-      })
+      }),
+      fetch('/api/contact', { method: 'POST', body: formData }),
+    ])
+    const delivered = deliveries.some((d) => d.status === 'fulfilled' && d.value.ok)
 
-      if (res.ok) {
-        trackFormSubmission(formData.get('service') as string)
-        setStatus('success')
-      } else {
-        setStatus('error')
-      }
-    } catch {
+    if (delivered) {
+      trackFormSubmission(formData.get('service') as string)
+      setStatus('success')
+    } else {
       setStatus('error')
     }
   }
@@ -82,6 +83,16 @@ export default function ContactForm() {
           Something went wrong. Please try again or call us.
         </div>
       )}
+
+      {/* Honeypot for spam bots; hidden from people and screen readers */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
 
       {/* Name */}
       <div>
