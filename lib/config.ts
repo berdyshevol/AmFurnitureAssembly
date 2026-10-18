@@ -94,7 +94,7 @@ export type CtaSlot = keyof typeof ctaLabels;
 export const heroSlides = [
   {
     src: "/photos/banner4.png",
-    alt: "Bundle Deal — 10% off 1-3 items, 15% off 4-6 items, 20% off 7 and more",
+    alt: "Bundle Deal — 10% off 2-3 items, 15% off 4 or more items. Same or next-day service",
   },
   {
     src: "/photos/banner5.png",
