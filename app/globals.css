@@ -26,6 +26,21 @@ body {
   outline-offset: 2px;
 }
 
+@keyframes heroRise {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[heroRise_0\.6s_ease-out\] {
+    animation: none;
+  }
+}
+
 @keyframes slideInRight {
   from {
     transform: translateX(100%);

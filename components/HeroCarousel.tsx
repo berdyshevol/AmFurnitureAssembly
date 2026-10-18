@@ -48,15 +48,11 @@ export default function HeroCarousel() {
       <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#d4c5b0]/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#c9b99a]/15 blur-3xl" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-20">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-14 lg:py-20">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* ── Text column ─────────────────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="relative z-20 text-center lg:text-left"
-          >
+          {/* Entrance motion is CSS transform-only so the hero paints before hydration (LCP). */}
+          <div className="relative z-20 text-center lg:text-left animate-[heroRise_0.6s_ease-out]">
             <span className="inline-block rounded-full bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-5">
               Dallas-Fort Worth &middot; Same/Next-Day Service
             </span>
@@ -88,15 +84,10 @@ export default function HeroCarousel() {
                 View Our Work &rarr;
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* ── Carousel column ─────────────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-            className="relative z-20 flex flex-col items-center"
-          >
+          <div className="relative z-20 flex flex-col items-center">
             {/* Carousel frame — all heroSlides stacked, crossfade via opacity */}
             <div className="relative w-full max-w-[480px] mx-auto aspect-[3/4] rounded-[20px] overflow-hidden shadow-2xl shadow-black/10 ring-1 ring-black/[0.04]">
               {heroSlides.map((slide, i) => (
@@ -117,7 +108,9 @@ export default function HeroCarousel() {
                     fill
                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 480px"
                     className="object-cover"
-                    priority
+                    // Only the first slide is the LCP image; the rest load right after so crossfades never flash.
+                    fetchPriority={i === 0 ? 'high' : 'low'}
+                    loading="eager"
                   />
                 </Link>
               ))}
@@ -152,7 +145,7 @@ export default function HeroCarousel() {
                 </button>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

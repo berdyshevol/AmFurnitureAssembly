@@ -10,11 +10,12 @@ export default function Footer() {
           {/* Col 1: Logo + tagline */}
           <div>
             <Image
-              src="/photos/logo-vector3.svg"
+              src="/photos/logo.png"
               alt="AM Furniture Assembly"
-              width={400}
-              height={120}
-              className="h-[90px] w-auto"
+              width={914}
+              height={240}
+              className="h-[58px] w-auto"
+              sizes="221px"
             />
             <p className="mt-4 text-sm text-secondary leading-relaxed">
               Professional furniture assembly service you can trust.

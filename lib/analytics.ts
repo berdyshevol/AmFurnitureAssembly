@@ -13,3 +13,10 @@ export function trackCTAClick(slot: string) {
     event_label: slot,
   })
 }
+
+export function trackPhoneClick(slot: string) {
+  sendGAEvent('event', 'phone_call_click', {
+    event_category: 'contact',
+    event_label: slot,
+  })
+}

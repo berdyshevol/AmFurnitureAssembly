@@ -4,7 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ctaLabels, navLinks } from "@/lib/config";
+import { ctaLabels, navLinks, siteConfig } from "@/lib/config";
+import { trackPhoneClick } from "@/lib/analytics";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -13,16 +14,17 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 lg:h-20 items-center justify-between gap-3">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/photos/logo-vector3.svg"
+              src="/photos/logo.png"
               alt="AM Furniture Assembly"
-              width={400}
-              height={120}
-              className="h-[90px] w-auto"
-              priority
+              width={914}
+              height={240}
+              className="h-10 lg:h-[58px] w-auto"
+              sizes="(min-width: 1024px) 221px, 152px"
+              loading="eager"
             />
           </Link>
 
@@ -55,6 +57,18 @@ export default function Navbar() {
               {ctaLabels.navbarDesktop}
             </Link>
           </div>
+
+          {/* Mobile tap-to-call: most local-service leads on phones call rather than fill a form */}
+          <a
+            href={siteConfig.phoneTel}
+            onClick={() => trackPhoneClick("navbarMobile")}
+            className="lg:hidden ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-button)] bg-primary px-3.5 py-2 text-sm font-semibold text-white"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" />
+            </svg>
+            Call
+          </a>
 
           {/* Mobile burger */}
           <button
