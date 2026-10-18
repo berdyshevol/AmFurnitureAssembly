@@ -7,6 +7,30 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
+    name: 'Colin G.',
+    rating: 5,
+    text: '10/10 from communication to completion of the job. Everything came together perfectly, and I am very happy and grateful for their help. I had 2 buffet cabinets that needed to be put together, and without them, I would be lost! I will absolutely use them again.',
+    service: 'Buffet Cabinet Assembly',
+  },
+  {
+    name: 'Olivia O.',
+    rating: 5,
+    text: 'We needed two full beds built, dresser, and two shoe cabinets built. We received a response almost immediately after reaching out and they offered services the very next day! Highly recommend!',
+    service: 'Beds, Dresser & Cabinets',
+  },
+  {
+    name: 'Niusha G.',
+    rating: 5,
+    text: 'We had a great experience with our furniture assembly service. He was professional, patient, and extremely helpful throughout the entire process. He took the time to make sure everything was assembled correctly and answered all of our questions with a positive attitude. His attention to detail and friendly personality made the experience stress-free.',
+    service: 'Bookcase Assembly',
+  },
+  {
+    name: 'Amanda R.',
+    rating: 5,
+    text: 'Andrew was amazing. He responded super quickly and his pricing was very reasonable. He was able to come same day and put together a dresser and two nightstands and they look perfect. We will definitely be using him again.',
+    service: 'Dresser & Nightstands',
+  },
+  {
     name: 'Emily C.',
     rating: 5,
     text: "I can't recommend Andrii enough. He assembled my desk and couch console table. One thing that really stood out to me was how careful he was with my home and floors. He chose to unpack everything in one area and carry the pieces to the room rather than dragging heavy boxes across the floor. His pricing is more than fair for the quality of work he provides, and I'll absolutely be calling him again for future projects.",

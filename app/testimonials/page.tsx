@@ -41,7 +41,14 @@ export default function TestimonialsPage() {
           >
             {'★★★★★'}
           </div>
-          <p className="mt-3 text-sm text-secondary">{reviewSummary.reviewCount} reviews on Thumbtack</p>
+          <a
+            href={siteConfig.thumbtackUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-sm font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
+          >
+            {`Read all ${reviewSummary.reviewCount} reviews on Thumbtack →`}
+          </a>
         </div>
       </section>
 
