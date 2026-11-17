@@ -35,6 +35,7 @@ export async function POST(request: Request) {
   const name = field(form, 'name')
   const email = field(form, 'email')
   const phone = field(form, 'phone')
+  const city = field(form, 'city')
   const service = field(form, 'service')
   const message = field(form, 'message')
 
@@ -48,6 +49,7 @@ export async function POST(request: Request) {
     `<b>Name:</b> ${escapeHtml(name)}`,
     `<b>Email:</b> ${escapeHtml(email)}`,
     phone ? `<b>Phone:</b> ${escapeHtml(phone)}` : null,
+    city ? `<b>City / ZIP:</b> ${escapeHtml(city)}` : null,
     service ? `<b>Service:</b> ${escapeHtml(service)}` : null,
     '',
     escapeHtml(message),

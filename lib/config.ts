@@ -261,21 +261,21 @@ export const pageMetadata = {
 } as const;
 
 export const pageHeroes = {
-  about: { src: "/photos/hero1.png", alt: "Cabinet assembly in progress" },
+  about: { src: "/photos/hero1.jpg", alt: "Cabinet assembly in progress" },
   services: {
-    src: "/photos/hero3.png",
+    src: "/photos/hero3.jpg",
     alt: "White open shelving unit assembled by AM Furniture Assembly",
   },
   pricing: {
-    src: "/photos/hero2.png",
+    src: "/photos/hero2.jpg",
     alt: "Modern wall-mounted storage unit with wood and white finish",
   },
   gallery: {
-    src: "/photos/hero4.png",
+    src: "/photos/hero4.jpg",
     alt: "Outdoor playground assembly by AM Furniture",
   },
   testimonials: {
-    src: "/photos/hero5.png",
+    src: "/photos/hero5.jpg",
     alt: "Kitchen island sideboard with white cabinet and wood countertop",
   },
   homeDivider: {

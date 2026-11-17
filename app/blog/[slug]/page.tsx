@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
@@ -71,6 +72,19 @@ export default async function BlogPost({
             {post.title}
           </h1>
         </header>
+
+        {post.image && (
+          <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-(--radius-card)">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+          </div>
+        )}
 
         <div className="prose-custom mt-10">
           {/* Post bodies start with an H1 title; the header above already shows it. */}

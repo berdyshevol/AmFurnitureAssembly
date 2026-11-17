@@ -144,6 +144,21 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* City / ZIP */}
+      <div>
+        <label htmlFor="city" className="block text-sm font-medium text-primary mb-1.5">
+          City / ZIP
+        </label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          autoComplete="address-level2"
+          className="w-full rounded-[var(--radius-button)] border border-border bg-white px-4 py-2.5 text-sm text-primary placeholder:text-secondary/60 outline-none focus:border-focus focus:ring-2 focus:ring-focus/20 transition-colors"
+          placeholder="e.g. Dallas, 75201"
+        />
+      </div>
+
       {/* Service Type */}
       <div>
         <label htmlFor="service" className="block text-sm font-medium text-primary mb-1.5">
