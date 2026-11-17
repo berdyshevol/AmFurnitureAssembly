@@ -84,7 +84,7 @@ export default function ServicesPage() {
               How It <span className="font-bold">Works</span>
             </h2>
             <p className="mt-4 text-secondary max-w-2xl mx-auto">
-              Three simple howItWorksSteps to perfectly assembled furniture.
+              Three simple steps to perfectly assembled furniture.
             </p>
           </ScrollReveal>
 

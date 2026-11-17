@@ -1,8 +1,8 @@
 export const baseUrl = "https://am-furnitureassembly.com";
 
 export const siteConfig = {
-  name: "Andrii Mohilov Furniture Assembly",
-  founder: "Andrii Mohilov",
+  name: "Andrii Mohylov Furniture Assembly",
+  founder: "Andrii Mohylov",
   shortName: "AM Furniture Assembly",
   phone: "(940) 222-0263",
   phoneTel: "tel:+19402220263",
@@ -119,9 +119,12 @@ export const navLinks = [
 
 export const footerLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

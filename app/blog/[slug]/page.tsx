@@ -73,7 +73,8 @@ export default async function BlogPost({
         </header>
 
         <div className="prose-custom mt-10">
-          <MDXRemote source={post.content} />
+          {/* Post bodies start with an H1 title; the header above already shows it. */}
+          <MDXRemote source={post.content.replace(/^#\s.*\r?\n+/, '')} />
         </div>
       </article>
       <JsonLd data={blogPostingSchema(post)} />

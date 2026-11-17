@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import Image from 'next/image'
+import Image, { getImageProps } from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
@@ -26,8 +26,9 @@ export default function GalleryGrid({ photos, showFilter = true, initialCategory
     setLightboxIndex(index)
   }, [])
 
+  // Full-screen view uses a resized copy (1920px wide) instead of the multi-megabyte original.
   const lightboxSlides = filtered.map((photo) => ({
-    src: photo.src,
+    src: getImageProps({ src: photo.src, alt: photo.alt, width: 960, height: 720 }).props.src,
     alt: photo.alt,
   }))
 
