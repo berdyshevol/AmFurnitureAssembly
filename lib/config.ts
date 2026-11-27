@@ -6,11 +6,11 @@ export const baseUrl = "https://am-furnitureassembly.com";
  * Bump the date whenever you change that page's text, prices or photos.
  */
 export const pageUpdatedAt = {
-  "/": "2026-11-16",
+  "/": "2026-11-27",
   "/services": "2026-11-16",
   "/pricing": "2026-10-18",
   "/gallery": "2026-04-01",
-  "/testimonials": "2026-10-18",
+  "/testimonials": "2026-11-27",
   "/about": "2026-10-18",
   "/contact": "2026-11-27",
   "/blog": "2026-10-18",
@@ -147,7 +147,7 @@ export const footerLinks = [
 export const stats = [
   { value: 100, suffix: "+", label: "Projects", decimals: 0 },
   { value: 5.0, suffix: "", label: "Thumbtack Rating", decimals: 1 },
-  { value: 60, suffix: "", label: "Five-Star Reviews", decimals: 0 },
+  { value: 62, suffix: "", label: "Five-Star Reviews", decimals: 0 },
   { value: 100, suffix: "%", label: "Satisfaction", decimals: 0 },
 ] as const;
 
@@ -194,7 +194,7 @@ export const brands = [
 
 export const reviewSummary = {
   rating: "5.0",
-  reviewCount: "60",
+  reviewCount: "62",
   priceRange: "$$",
 } as const;
 
@@ -223,7 +223,7 @@ export const pageMetadata = {
     title:
       "AM Furniture Assembly | Professional Furniture Assembly in Dallas-Fort Worth, TX",
     description:
-      "Expert furniture assembly service in Dallas-Fort Worth, TX. We assemble IKEA, Wayfair, Amazon, and all major brands. 60 five-star reviews. Starting at $40. Get a free quote today!",
+      "Expert furniture assembly service in Dallas-Fort Worth, TX. We assemble IKEA, Wayfair, Amazon, and all major brands. 62 five-star reviews. Starting at $40. Get a free quote today!",
   },
   home: {
     title:
@@ -259,7 +259,7 @@ export const pageMetadata = {
   testimonials: {
     title: "Testimonials | AM Furniture Assembly",
     description:
-      "Read what our customers say about AM Furniture Assembly. 60 five-star reviews on Thumbtack from satisfied clients in Dallas-Fort Worth, TX.",
+      "Read what our customers say about AM Furniture Assembly. 62 five-star reviews on Thumbtack from satisfied clients in Dallas-Fort Worth, TX.",
     alternates: pageAlternates("/testimonials"),
   },
   contact: {

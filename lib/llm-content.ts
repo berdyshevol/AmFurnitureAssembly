@@ -71,7 +71,7 @@ Details: ${mdLink('Services', '/services')}. Prices: ${mdLink('Pricing', '/prici
 
 ${testimonials
   .slice(0, 3)
-  .map((t) => `> ${t.text}\n>\n> — ${t.name}, ${t.service}`)
+  .map((t) => `> ${t.text}\n>\n> — ${t.name}, ${t.service}, ${t.date}`)
   .join('\n\n')}
 
 More: ${mdLink('Testimonials', '/testimonials')}.
@@ -174,7 +174,7 @@ function testimonialsMd(): string {
 > ${reviewSummary.rating} out of 5 from ${reviewSummary.reviewCount} reviews on Thumbtack: ${siteConfig.thumbtackUrl}
 
 ${testimonials
-  .map((t) => `## ${t.name} — ${t.service} (${t.rating}/5)\n\n${t.text}`)
+  .map((t) => `## ${t.name} — ${t.service} (${t.rating}/5, ${t.date})\n\n${t.text}`)
   .join('\n\n')}`
 }
 

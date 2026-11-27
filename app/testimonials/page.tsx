@@ -62,6 +62,7 @@ export default function TestimonialsPage() {
                 rating={t.rating}
                 text={t.text}
                 service={t.service}
+                date={t.date}
               />
             </ScrollReveal>
           ))}

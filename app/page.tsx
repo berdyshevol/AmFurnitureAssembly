@@ -177,6 +177,7 @@ export default function Home() {
                 rating={t.rating}
                 text={t.text}
                 service={t.service}
+                date={t.date}
               />
             </ScrollReveal>
           ))}
