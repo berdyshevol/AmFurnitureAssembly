@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { testimonials } from '@/lib/testimonials-data'
-import TestimonialCard from '@/components/TestimonialCard'
-import ScrollReveal from '@/components/ScrollReveal'
+import ReviewList from '@/components/ReviewList'
 import CTASection from '@/components/CTASection'
 import { pageMetadata, pageHeroes, siteConfig, reviewSummary } from '@/lib/config'
 
@@ -54,18 +53,10 @@ export default function TestimonialsPage() {
 
       {/* Testimonials Grid */}
       <section className="py-16 px-4">
-        <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
-            <ScrollReveal key={t.name} delay={i * 0.1}>
-              <TestimonialCard
-                name={t.name}
-                rating={t.rating}
-                text={t.text}
-                service={t.service}
-              />
-            </ScrollReveal>
-          ))}
-        </div>
+        <h2 className="mb-8 text-center text-2xl font-light text-primary">
+          {testimonials.length} furniture assembly reviews, <span className="font-bold">newest first</span>
+        </h2>
+        <ReviewList reviews={testimonials} />
       </section>
 
       {/* Thumbtack Link */}

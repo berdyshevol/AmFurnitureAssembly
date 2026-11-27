@@ -3,6 +3,8 @@ interface TestimonialCardProps {
   rating: number
   text: string
   service?: string
+  /** YYYY-MM-DD */
+  date?: string
 }
 
 export default function TestimonialCard({
@@ -10,7 +12,18 @@ export default function TestimonialCard({
   rating,
   text,
   service,
+  date,
 }: TestimonialCardProps) {
+  const details = [
+    service,
+    date &&
+      new Date(`${date}T12:00:00Z`).toLocaleDateString('en-US', {
+        month: 'long',
+        year: 'numeric',
+        timeZone: 'UTC',
+      }),
+  ].filter(Boolean)
+
   return (
     <div className="rounded-[var(--radius-card)] bg-background p-6 sm:p-8">
       {/* Stars */}
@@ -27,8 +40,8 @@ export default function TestimonialCard({
       {/* Author */}
       <div className="mt-5">
         <p className="text-sm font-bold text-primary">{name}</p>
-        {service && (
-          <p className="mt-0.5 text-xs text-secondary">{service}</p>
+        {details.length > 0 && (
+          <p className="mt-0.5 text-xs text-secondary">{details.join(' · ')}</p>
         )}
       </div>
     </div>
