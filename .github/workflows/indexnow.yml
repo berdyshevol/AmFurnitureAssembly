@@ -1,0 +1,28 @@
+# After each successful production deploy on Vercel, tell IndexNow (Bing, Yandex, Seznam...)
+# which URLs the site has, so they recrawl quickly. ChatGPT and Copilot search via Bing.
+# The key is public by design: it must also be served at https://am-furnitureassembly.com/7a57098f0b7bfc5a25d4798533af5c8e.txt
+name: IndexNow
+
+on:
+  deployment_status:
+
+jobs:
+  ping:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    env:
+      HOST: am-furnitureassembly.com
+      KEY: 7a57098f0b7bfc5a25d4798533af5c8e
+    steps:
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          set -euo pipefail
+          urls=$(curl -fsSL "https://$HOST/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed -e 's/<loc>//' -e 's/<\/loc>//')
+          echo "$urls"
+          body=$(printf '%s\n' "$urls" | jq -R . | jq -s --arg host "$HOST" --arg key "$KEY" \
+            '{host: $host, key: $key, keyLocation: ("https://" + $host + "/" + $key + ".txt"), urlList: .}')
+          status=$(curl -s -o /dev/stderr -w '%{http_code}' -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' -d "$body")
+          echo "IndexNow HTTP $status"
+          # 200 = accepted, 202 = accepted, key check pending
+          [ "$status" = 200 ] || [ "$status" = 202 ]
