@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react'
 
 import { contactFormServiceOptions } from '@/lib/config'
 import { trackFormSubmission } from '@/lib/analytics'
+import { appendLeadSource } from '@/lib/lead-source'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -42,6 +43,7 @@ export default function ContactForm() {
 
     setErrors({})
     setStatus('loading')
+    const leadSource = appendLeadSource(formData)
 
     // Email (Formspree) and Telegram are sent in parallel; the lead counts as delivered if either succeeds.
     const deliveries = await Promise.allSettled([
@@ -55,7 +57,7 @@ export default function ContactForm() {
     const delivered = deliveries.some((d) => d.status === 'fulfilled' && d.value.ok)
 
     if (delivered) {
-      trackFormSubmission(formData.get('service') as string)
+      trackFormSubmission(formData.get('service') as string, leadSource)
       setStatus('success')
     } else {
       setStatus('error')

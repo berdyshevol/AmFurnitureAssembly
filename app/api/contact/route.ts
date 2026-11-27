@@ -11,6 +11,29 @@ function field(form: FormData, name: string): string {
   return typeof value === 'string' ? value.trim().slice(0, MAX_FIELD_LENGTH) : ''
 }
 
+/**
+ * Appends the lead as a row to a Google Sheet via an Apps Script web app.
+ * Skipped until LEADS_SHEET_WEBHOOK_URL is set; a failure never blocks the lead.
+ */
+async function logLeadToSheet(row: Record<string, string>) {
+  const url = process.env.LEADS_SHEET_WEBHOOK_URL
+  if (!url) return
+  // A cell starting with = + - @ would run as a spreadsheet formula; force it to plain text.
+  const safeRow = Object.fromEntries(
+    Object.entries(row).map(([key, value]) => [key, /^[=+\-@\t\r]/.test(value) ? `'${value}` : value]),
+  )
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(safeRow),
+    })
+    if (!res.ok) console.error('Lead sheet append failed', res.status)
+  } catch (err) {
+    console.error('Lead sheet append failed', err)
+  }
+}
+
 /** Forwards a contact-form lead to the owner's Telegram chat. */
 export async function POST(request: Request) {
   const token = process.env.TELEGRAM_BOT_TOKEN
@@ -38,6 +61,10 @@ export async function POST(request: Request) {
   const city = field(form, 'city')
   const service = field(form, 'service')
   const message = field(form, 'message')
+  const leadSource = field(form, 'lead_source')
+  const leadReferrer = field(form, 'lead_referrer')
+  const leadUtm = field(form, 'lead_utm')
+  const leadLanding = field(form, 'lead_landing')
 
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || message.length < 10) {
     return Response.json({ ok: false }, { status: 400 })
@@ -53,6 +80,11 @@ export async function POST(request: Request) {
     service ? `<b>Service:</b> ${escapeHtml(service)}` : null,
     '',
     escapeHtml(message),
+    '',
+    `<b>Source (auto):</b> ${escapeHtml(leadSource || 'Unknown')}`,
+    leadReferrer ? `<b>Referrer:</b> ${escapeHtml(leadReferrer)}` : null,
+    leadUtm ? `<b>UTM:</b> ${escapeHtml(leadUtm)}` : null,
+    leadLanding ? `<b>Landing page:</b> ${escapeHtml(leadLanding)}` : null,
   ].filter((line) => line !== null)
 
   const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -70,6 +102,20 @@ export async function POST(request: Request) {
     console.error('Telegram sendMessage failed', res.status, await res.text())
     return Response.json({ ok: false }, { status: 502 })
   }
+
+  await logLeadToSheet({
+    date: new Date().toISOString(),
+    name,
+    email,
+    phone,
+    city,
+    service,
+    message,
+    source: leadSource || 'Unknown',
+    referrer: leadReferrer,
+    utm: leadUtm,
+    landing: leadLanding,
+  })
 
   return Response.json({ ok: true })
 }

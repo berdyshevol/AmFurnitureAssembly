@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/StructuredData";
+import LeadSourceCapture from "@/components/LeadSourceCapture";
 import { baseUrl, pageMetadata, openGraphConfig } from "@/lib/config";
 
 const inter = Inter({
@@ -39,6 +40,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <StructuredData />
+        <LeadSourceCapture />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
