@@ -7,7 +7,7 @@ import {
   baseUrl,
   brands,
   howItWorksSteps,
-  navLinks,
+  footerLinks,
   pageMetadata,
   reviewSummary,
   siteConfig,
@@ -15,7 +15,7 @@ import {
 } from '@/lib/config'
 import { services } from '@/lib/services-data'
 import { bundleTiers, pricingItems, formatPrice } from '@/lib/pricing-data'
-import { faqItems } from '@/lib/faq-data'
+import { faqGroups } from '@/lib/faq-data'
 import { testimonials } from '@/lib/testimonials-data'
 import { categories, galleryPhotos } from '@/lib/gallery-data'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
@@ -203,9 +203,17 @@ async function blogMd(): Promise<string> {
 
 ${posts.map((p) => `- [${p.title}](${absolute(markdownPath(`/blog/${p.slug}`))}) (${p.date}): ${p.excerpt}`).join('\n')}
 
-## Frequently asked questions
+Answers to common questions: ${mdLink('FAQ', '/faq')}.`
+}
 
-${faqItems.map((f) => `### ${f.question}\n\n${f.answer}`).join('\n\n')}`
+function faqMd(): string {
+  return `# Furniture Assembly FAQ
+
+> ${pageMetadata.faq.description}
+
+${faqGroups
+  .map((g) => `## ${g.title}\n\n${g.items.map((f) => `### ${f.question}\n\n${f.answer}`).join('\n\n')}`)
+  .join('\n\n')}`
 }
 
 async function blogPostMd(slug: string): Promise<string | null> {
@@ -228,6 +236,7 @@ const staticPages: Record<string, () => string | Promise<string>> = {
   testimonials: testimonialsMd,
   contact: contactMd,
   blog: blogMd,
+  faq: faqMd,
 }
 
 /** Markdown for a page given its path segments ([] for home), or null if there is no such page. */
@@ -256,7 +265,8 @@ export async function getLlmsTxt(): Promise<string> {
     '/about': 'Founder story and experience',
     '/testimonials': 'Customer reviews',
     '/gallery': 'Photos of completed projects',
-    '/blog': 'Articles and FAQ',
+    '/faq': 'Answers about prices, booking, the work and the service area',
+    '/blog': 'Articles',
     '/contact': 'Phone, email, hours and quote form',
   }
 
@@ -270,7 +280,7 @@ To request a quote, call or text ${siteConfig.phone} or use the form at ${absolu
 
 ## Pages
 
-${navLinks
+${footerLinks
   .filter((l) => l.href in pageDescriptions)
   .map((l) => `- ${mdLink(l.label, l.href)}: ${pageDescriptions[l.href]}`)
   .join('\n')}

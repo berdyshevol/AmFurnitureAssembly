@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 // Pages that have a markdown copy for AI agents (see lib/llm-content.ts).
-const mdPages = "about|services|pricing|gallery|testimonials|contact|blog";
+const mdPages = "about|services|pricing|gallery|testimonials|contact|blog|faq";
 const acceptsMarkdown = [
   { type: "header" as const, key: "accept", value: "(.*)text/markdown(.*)" },
 ];
