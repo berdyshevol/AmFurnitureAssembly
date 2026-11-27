@@ -15,7 +15,7 @@ import {
 } from '@/lib/config'
 import { services } from '@/lib/services-data'
 import { bundleTiers, pricingItems, formatPrice } from '@/lib/pricing-data'
-import { faqGroups } from '@/lib/faq-data'
+import { faqGroups, faqItems } from '@/lib/faq-data'
 import { testimonials } from '@/lib/testimonials-data'
 import { categories, galleryPhotos } from '@/lib/gallery-data'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
@@ -39,7 +39,8 @@ function keyFacts(): string {
     `- **Email:** ${siteConfig.email}`,
     `- **Hours:** ${siteConfig.hours.weekdays}; ${siteConfig.hours.saturday}; ${siteConfig.hours.sunday}`,
     `- **Prices:** from ${siteConfig.startingPrice} per item; bundle discounts ${bundleTiers.map((t) => `${t.discount} for ${t.label}`).join(', ')}`,
-    `- **Availability:** same-day and next-day service, subject to availability`,
+    `- **Availability:** same-day and next-day service, subject to availability; no minimum order; no travel fee in ${siteConfig.location}`,
+    `- **Extras:** wall anchoring on request; one box taken away free (more for a small fee); old furniture disassembly (paid); upstairs apartments without elevator; homes, offices and businesses`,
     `- **Payment:** ${siteConfig.payment.join(', ')}`,
     `- **Reputation:** ${reviewSummary.rating} rating from ${reviewSummary.reviewCount} reviews on Thumbtack, ${projectsCount} projects completed, insured`,
     `- **Brands:** ${brands.join(', ')} and any other flat-pack furniture`,
@@ -277,6 +278,12 @@ export async function getLlmsTxt(): Promise<string> {
 ${keyFacts()}
 
 To request a quote, call or text ${siteConfig.phone} or use the form at ${absolute('/contact')}.
+
+## Common questions
+
+${faqItems.map((f) => `- **${f.question}** ${f.answer}`).join('\n')}
+
+Full FAQ: ${absolute(markdownPath('/faq'))}
 
 ## Pages
 
