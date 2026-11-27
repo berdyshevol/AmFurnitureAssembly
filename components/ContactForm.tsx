@@ -2,8 +2,9 @@
 
 import { useState, type FormEvent } from 'react'
 
-import { contactFormServiceOptions } from '@/lib/config'
+import { contactFormHeardFromOptions, contactFormServiceOptions } from '@/lib/config'
 import { trackFormSubmission } from '@/lib/analytics'
+import { appendLeadSource } from '@/lib/lead-source'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -42,6 +43,7 @@ export default function ContactForm() {
 
     setErrors({})
     setStatus('loading')
+    const leadSource = appendLeadSource(formData)
 
     // Email (Formspree) and Telegram are sent in parallel; the lead counts as delivered if either succeeds.
     const deliveries = await Promise.allSettled([
@@ -55,7 +57,11 @@ export default function ContactForm() {
     const delivered = deliveries.some((d) => d.status === 'fulfilled' && d.value.ok)
 
     if (delivered) {
-      trackFormSubmission(formData.get('service') as string)
+      trackFormSubmission(
+        formData.get('service') as string,
+        leadSource,
+        formData.get('heard_from') as string,
+      )
       setStatus('success')
     } else {
       setStatus('error')
@@ -174,6 +180,28 @@ export default function ContactForm() {
             Select a service...
           </option>
           {contactFormServiceOptions.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* How did you find us? */}
+      <div>
+        <label htmlFor="heard_from" className="block text-sm font-medium text-primary mb-1.5">
+          How did you find us?
+        </label>
+        <select
+          id="heard_from"
+          name="heard_from"
+          className="w-full rounded-[var(--radius-button)] border border-border bg-white px-4 py-2.5 text-sm text-primary outline-none focus:border-focus focus:ring-2 focus:ring-focus/20 transition-colors"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select an option...
+          </option>
+          {contactFormHeardFromOptions.map((opt) => (
             <option key={opt} value={opt}>
               {opt}
             </option>

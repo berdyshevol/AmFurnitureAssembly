@@ -144,6 +144,17 @@ export const contactFormServiceOptions = [
   "Other",
 ] as const;
 
+export const contactFormHeardFromOptions = [
+  "Google search or Maps",
+  "ChatGPT",
+  "Another AI assistant (Claude, Perplexity, Copilot, Gemini)",
+  "Thumbtack",
+  "Yelp",
+  "Facebook / Instagram",
+  "Friend or referral",
+  "Other",
+] as const;
+
 export const howItWorksSteps = [
   {
     number: 1,

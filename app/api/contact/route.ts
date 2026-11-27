@@ -38,6 +38,11 @@ export async function POST(request: Request) {
   const city = field(form, 'city')
   const service = field(form, 'service')
   const message = field(form, 'message')
+  const heardFrom = field(form, 'heard_from')
+  const leadSource = field(form, 'lead_source')
+  const leadReferrer = field(form, 'lead_referrer')
+  const leadUtm = field(form, 'lead_utm')
+  const leadLanding = field(form, 'lead_landing')
 
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || message.length < 10) {
     return Response.json({ ok: false }, { status: 400 })
@@ -53,6 +58,12 @@ export async function POST(request: Request) {
     service ? `<b>Service:</b> ${escapeHtml(service)}` : null,
     '',
     escapeHtml(message),
+    '',
+    `<b>Source (auto):</b> ${escapeHtml(leadSource || 'Unknown')}`,
+    heardFrom ? `<b>They said:</b> ${escapeHtml(heardFrom)}` : null,
+    leadReferrer ? `<b>Referrer:</b> ${escapeHtml(leadReferrer)}` : null,
+    leadUtm ? `<b>UTM:</b> ${escapeHtml(leadUtm)}` : null,
+    leadLanding ? `<b>Landing page:</b> ${escapeHtml(leadLanding)}` : null,
   ].filter((line) => line !== null)
 
   const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
