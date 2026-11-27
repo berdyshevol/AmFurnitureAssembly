@@ -7,14 +7,14 @@ import StatsBar from "@/components/StatsBar";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import CTASection from "@/components/CTASection";
-import { ctaLabels, pageMetadata, pageHeroes, siteConfig } from "@/lib/config";
+import { ctaLabels, pageMetadata, pageHeroes, reviewSummary, siteConfig } from "@/lib/config";
 
 import { services } from "@/lib/services-data";
 import { galleryPhotos, categories } from "@/lib/gallery-data";
 import { testimonials } from "@/lib/testimonials-data";
 
-/** The 10 newest reviews with enough detail to be convincing. */
-const homeReviews = testimonials.filter((t) => t.text.length >= 100).slice(0, 10);
+/** The 3 newest reviews with enough detail to be convincing. */
+const homeReviews = testimonials.filter((t) => t.text.length >= 120).slice(0, 3);
 
 export const metadata: Metadata = pageMetadata.home;
 
@@ -174,7 +174,7 @@ export default function Home() {
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {homeReviews.map((t, i) => (
-            <ScrollReveal key={t.name} delay={(i % 3) * 0.1}>
+            <ScrollReveal key={t.name} delay={i * 0.1}>
               <TestimonialCard
                 name={t.name}
                 rating={t.rating}
@@ -186,6 +186,9 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-10 text-center">
+          <p className="mb-2 text-sm text-secondary">
+            {`★ ${reviewSummary.rating} · ${reviewSummary.reviewCount} reviews on Thumbtack`}
+          </p>
           <Link
             href="/testimonials"
             className="text-sm font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
