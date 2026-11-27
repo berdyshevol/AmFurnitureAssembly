@@ -29,7 +29,9 @@ const SOURCE_PATTERNS: [RegExp, string][] = [
   [/angi|homeadvisor/, 'Angi'],
   [/gbp|google\.com\/maps|maps\.google/, 'Google Business Profile'],
   [/google/, 'Google'],
+  [/bing_places|bingplaces/, 'Bing Places'],
   [/bing/, 'Bing'],
+  [/^card\b|qr/, 'Business card / QR'],
   [/duckduckgo/, 'DuckDuckGo'],
   [/brave/, 'Brave'],
 ]
