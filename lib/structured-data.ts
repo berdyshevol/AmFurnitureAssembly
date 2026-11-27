@@ -106,6 +106,7 @@ export function blogPostingSchema(post: BlogPostMeta) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
+    dateModified: post.updated ?? post.date,
     url,
     mainEntityOfPage: url,
     ...(post.image ? { image: `${baseUrl}${post.image}` } : {}),

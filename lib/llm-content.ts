@@ -6,9 +6,11 @@ import {
   aboutPageContent,
   baseUrl,
   brands,
+  formatMonthYear,
   howItWorksSteps,
   navLinks,
   pageMetadata,
+  pageUpdatedAt,
   reviewSummary,
   siteConfig,
   stats,
@@ -135,7 +137,7 @@ function pricingMd(): string {
 
 > ${pageMetadata.pricing.description}
 
-Flat-rate prices per item in USD. Ranges depend on the size and complexity of the piece. The final price is confirmed in a free quote before work starts.
+Prices updated ${formatMonthYear(pageUpdatedAt['/pricing'])}. Flat-rate prices per item in USD. Ranges depend on the size and complexity of the piece. The final price is confirmed in a free quote before work starts.
 
 | Item | Price |
 | --- | --- |

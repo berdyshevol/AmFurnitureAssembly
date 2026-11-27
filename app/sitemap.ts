@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog'
-import { baseUrl } from '@/lib/config'
+import { baseUrl, pageUpdatedAt } from '@/lib/config'
 
 const BASE_URL = baseUrl
 
@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
+    lastModified: new Date(post.updated ?? post.date),
     changeFrequency: 'monthly',
     priority: 0.6,
   }))
@@ -17,49 +17,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     {
       url: BASE_URL,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/'],
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
       url: `${BASE_URL}/services`,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/services'],
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/pricing`,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/pricing'],
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${BASE_URL}/gallery`,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/gallery'],
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/testimonials`,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/testimonials'],
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/about'],
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/contact'],
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/blog`,
-      lastModified: new Date(),
+      lastModified: pageUpdatedAt['/blog'],
       changeFrequency: 'weekly',
       priority: 0.8,
     },

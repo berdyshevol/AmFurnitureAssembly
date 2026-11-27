@@ -7,6 +7,8 @@ export interface BlogPostMeta {
   slug: string
   title: string
   date: string
+  /** Optional YYYY-MM-DD of the last real edit; defaults to date. */
+  updated?: string
   excerpt: string
   image?: string
 }
@@ -64,6 +66,7 @@ export async function getAllPosts(): Promise<BlogPostMeta[]> {
       slug,
       title: data.title ?? slug,
       date: data.date ?? '',
+      updated: data.updated,
       excerpt: data.excerpt ?? '',
       image: data.image,
     }
@@ -95,6 +98,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     slug,
     title: data.title ?? slug,
     date: data.date ?? '',
+    updated: data.updated,
     excerpt: data.excerpt ?? '',
     image: data.image,
     content,
