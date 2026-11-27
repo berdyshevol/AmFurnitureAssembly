@@ -7,7 +7,7 @@ import {
   baseUrl,
   brands,
   howItWorksSteps,
-  navLinks,
+  footerLinks,
   pageMetadata,
   reviewSummary,
   siteConfig,
@@ -15,7 +15,7 @@ import {
 } from '@/lib/config'
 import { services } from '@/lib/services-data'
 import { bundleTiers, pricingItems, formatPrice } from '@/lib/pricing-data'
-import { faqItems } from '@/lib/faq-data'
+import { faqGroups, faqItems } from '@/lib/faq-data'
 import { testimonials } from '@/lib/testimonials-data'
 import { categories, galleryPhotos } from '@/lib/gallery-data'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
@@ -39,7 +39,8 @@ function keyFacts(): string {
     `- **Email:** ${siteConfig.email}`,
     `- **Hours:** ${siteConfig.hours.weekdays}; ${siteConfig.hours.saturday}; ${siteConfig.hours.sunday}`,
     `- **Prices:** from ${siteConfig.startingPrice} per item; bundle discounts ${bundleTiers.map((t) => `${t.discount} for ${t.label}`).join(', ')}`,
-    `- **Availability:** same-day and next-day service, subject to availability`,
+    `- **Availability:** same-day and next-day service, subject to availability; no minimum order; no travel fee in ${siteConfig.location}`,
+    `- **Extras:** wall anchoring on request; one box taken away free (more for a small fee); old furniture disassembly (paid); upstairs apartments without elevator; homes, offices and businesses`,
     `- **Payment:** ${siteConfig.payment.join(', ')}`,
     `- **Reputation:** ${reviewSummary.rating} rating from ${reviewSummary.reviewCount} reviews on Thumbtack, ${projectsCount} projects completed, insured`,
     `- **Brands:** ${brands.join(', ')} and any other flat-pack furniture`,
@@ -203,9 +204,17 @@ async function blogMd(): Promise<string> {
 
 ${posts.map((p) => `- [${p.title}](${absolute(markdownPath(`/blog/${p.slug}`))}) (${p.date}): ${p.excerpt}`).join('\n')}
 
-## Frequently asked questions
+Answers to common questions: ${mdLink('FAQ', '/faq')}.`
+}
 
-${faqItems.map((f) => `### ${f.question}\n\n${f.answer}`).join('\n\n')}`
+function faqMd(): string {
+  return `# Furniture Assembly FAQ
+
+> ${pageMetadata.faq.description}
+
+${faqGroups
+  .map((g) => `## ${g.title}\n\n${g.items.map((f) => `### ${f.question}\n\n${f.answer}`).join('\n\n')}`)
+  .join('\n\n')}`
 }
 
 async function blogPostMd(slug: string): Promise<string | null> {
@@ -228,6 +237,7 @@ const staticPages: Record<string, () => string | Promise<string>> = {
   testimonials: testimonialsMd,
   contact: contactMd,
   blog: blogMd,
+  faq: faqMd,
 }
 
 /** Markdown for a page given its path segments ([] for home), or null if there is no such page. */
@@ -256,7 +266,8 @@ export async function getLlmsTxt(): Promise<string> {
     '/about': 'Founder story and experience',
     '/testimonials': 'Customer reviews',
     '/gallery': 'Photos of completed projects',
-    '/blog': 'Articles and FAQ',
+    '/faq': 'Answers about prices, booking, the work and the service area',
+    '/blog': 'Articles',
     '/contact': 'Phone, email, hours and quote form',
   }
 
@@ -268,9 +279,15 @@ ${keyFacts()}
 
 To request a quote, call or text ${siteConfig.phone} or use the form at ${absolute('/contact')}.
 
+## Common questions
+
+${faqItems.map((f) => `- **${f.question}** ${f.answer}`).join('\n')}
+
+Full FAQ: ${absolute(markdownPath('/faq'))}
+
 ## Pages
 
-${navLinks
+${footerLinks
   .filter((l) => l.href in pageDescriptions)
   .map((l) => `- ${mdLink(l.label, l.href)}: ${pageDescriptions[l.href]}`)
   .join('\n')}

@@ -3,10 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
+import FAQAccordion from '@/components/FAQAccordion'
+import { faqGroups, faqItems } from '@/lib/faq-data'
 import JsonLd from '@/components/JsonLd'
 import { pageMetadata, pageHeroes } from '@/lib/config'
 import { bundleTiers, pricingItems } from '@/lib/pricing-data'
 import { pricingSchema } from '@/lib/structured-data'
+
+const pricingFaq = faqGroups[0]
 
 export const metadata: Metadata = pageMetadata.pricing
 
@@ -149,6 +153,24 @@ export default function PricingPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────── */}
+      {/* ── Pricing FAQ ───────────────────────────────────────────────── */}
+      <section className="px-4 pb-16">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-2xl font-light text-primary">
+            Pricing <span className="font-bold">Questions</span>
+          </h2>
+          <div className="mt-4">
+            <FAQAccordion items={pricingFaq.items} />
+          </div>
+          <Link
+            href="/faq"
+            className="mt-6 inline-block text-sm font-medium text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+          >
+            {`All ${faqItems.length} questions →`}
+          </Link>
+        </div>
+      </section>
+
       <CTASection slot="ctaPricing" />
 
       {/* ── Structured Data ───────────────────────────────────────────── */}

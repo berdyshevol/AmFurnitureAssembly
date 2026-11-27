@@ -4,9 +4,7 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import { faqItems } from '@/lib/faq-data'
 import FAQAccordion from '@/components/FAQAccordion'
-import JsonLd from '@/components/JsonLd'
 import { pageMetadata } from '@/lib/config'
-import { faqPageSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata.blog
 
@@ -71,10 +69,15 @@ export default async function BlogPage() {
           Frequently Asked Questions
         </h2>
         <div className="mt-8 max-w-3xl">
-          <FAQAccordion items={faqItems} />
+          <FAQAccordion items={faqItems.slice(0, 6)} />
+          <Link
+            href="/faq"
+            className="mt-6 inline-block text-sm font-medium text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
+          >
+            {`See all ${faqItems.length} questions →`}
+          </Link>
         </div>
       </section>
-      <JsonLd data={faqPageSchema(faqItems)} />
     </main>
   )
 }

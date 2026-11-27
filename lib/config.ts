@@ -13,7 +13,8 @@ export const pageUpdatedAt = {
   "/testimonials": "2026-11-27",
   "/about": "2026-10-18",
   "/contact": "2026-11-27",
-  "/blog": "2026-10-18",
+  "/blog": "2026-11-27",
+  "/faq": "2026-11-27",
 } as const;
 
 export const siteConfig = {
@@ -140,6 +141,7 @@ export const footerLinks = [
   { href: "/pricing", label: "Pricing" },
   { href: "/gallery", label: "Gallery" },
   { href: "/testimonials", label: "Testimonials" },
+  { href: "/faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -273,6 +275,12 @@ export const pageMetadata = {
     description:
       "Tips, guides, and frequently asked questions about professional furniture assembly in Dallas-Fort Worth, TX.",
     alternates: pageAlternates("/blog"),
+  },
+  faq: {
+    title: "Furniture Assembly FAQ: Prices, Booking & Service Area | AM Furniture Assembly",
+    description:
+      "Answers about furniture assembly in Dallas-Fort Worth, TX: prices per item, bundle discounts, no travel fee, same-day service, wall anchoring, box removal and more.",
+    alternates: pageAlternates("/faq"),
   },
 } as const;
 
