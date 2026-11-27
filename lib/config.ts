@@ -1,5 +1,21 @@
 export const baseUrl = "https://am-furnitureassembly.com";
 
+/**
+ * When each page's content last really changed (YYYY-MM-DD). Feeds the sitemap
+ * lastmod, which search engines use to decide what to recrawl.
+ * Bump the date whenever you change that page's text, prices or photos.
+ */
+export const pageUpdatedAt = {
+  "/": "2026-11-16",
+  "/services": "2026-11-16",
+  "/pricing": "2026-10-18",
+  "/gallery": "2026-04-01",
+  "/testimonials": "2026-10-18",
+  "/about": "2026-10-18",
+  "/contact": "2026-11-27",
+  "/blog": "2026-10-18",
+} as const;
+
 export const siteConfig = {
   name: "Andrii Mohylov Furniture Assembly",
   founder: "Andrii Mohylov",
