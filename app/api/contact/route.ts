@@ -18,11 +18,15 @@ function field(form: FormData, name: string): string {
 async function logLeadToSheet(row: Record<string, string>) {
   const url = process.env.LEADS_SHEET_WEBHOOK_URL
   if (!url) return
+  // A cell starting with = + - @ would run as a spreadsheet formula; force it to plain text.
+  const safeRow = Object.fromEntries(
+    Object.entries(row).map(([key, value]) => [key, /^[=+\-@\t\r]/.test(value) ? `'${value}` : value]),
+  )
   try {
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(row),
+      body: JSON.stringify(safeRow),
     })
     if (!res.ok) console.error('Lead sheet append failed', res.status)
   } catch (err) {
