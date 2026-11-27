@@ -13,6 +13,9 @@ import { services } from "@/lib/services-data";
 import { galleryPhotos, categories } from "@/lib/gallery-data";
 import { testimonials } from "@/lib/testimonials-data";
 
+/** The 10 newest reviews with enough detail to be convincing. */
+const homeReviews = testimonials.filter((t) => t.text.length >= 100).slice(0, 10);
+
 export const metadata: Metadata = pageMetadata.home;
 
 export default function Home() {
@@ -170,8 +173,8 @@ export default function Home() {
         </ScrollReveal>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.slice(0, 3).map((t, i) => (
-            <ScrollReveal key={t.name} delay={i * 0.1}>
+          {homeReviews.map((t, i) => (
+            <ScrollReveal key={t.name} delay={(i % 3) * 0.1}>
               <TestimonialCard
                 name={t.name}
                 rating={t.rating}
@@ -181,6 +184,14 @@ export default function Home() {
               />
             </ScrollReveal>
           ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link
+            href="/testimonials"
+            className="text-sm font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
+          >
+            {`Read all ${testimonials.length} reviews →`}
+          </Link>
         </div>
       </section>
 
