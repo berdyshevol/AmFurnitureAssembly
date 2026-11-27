@@ -38,7 +38,6 @@ export async function POST(request: Request) {
   const city = field(form, 'city')
   const service = field(form, 'service')
   const message = field(form, 'message')
-  const heardFrom = field(form, 'heard_from')
   const leadSource = field(form, 'lead_source')
   const leadReferrer = field(form, 'lead_referrer')
   const leadUtm = field(form, 'lead_utm')
@@ -60,7 +59,6 @@ export async function POST(request: Request) {
     escapeHtml(message),
     '',
     `<b>Source (auto):</b> ${escapeHtml(leadSource || 'Unknown')}`,
-    heardFrom ? `<b>They said:</b> ${escapeHtml(heardFrom)}` : null,
     leadReferrer ? `<b>Referrer:</b> ${escapeHtml(leadReferrer)}` : null,
     leadUtm ? `<b>UTM:</b> ${escapeHtml(leadUtm)}` : null,
     leadLanding ? `<b>Landing page:</b> ${escapeHtml(leadLanding)}` : null,

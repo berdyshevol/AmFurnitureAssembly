@@ -1,11 +1,10 @@
 import { sendGAEvent } from '@next/third-parties/google'
 
-export function trackFormSubmission(service?: string, leadSource?: string, heardFrom?: string) {
+export function trackFormSubmission(service?: string, leadSource?: string) {
   sendGAEvent('event', 'generate_lead', {
     event_category: 'contact',
     event_label: service || 'general',
     lead_source: leadSource || 'Unknown',
-    heard_from: heardFrom || 'not answered',
   })
 }
 
