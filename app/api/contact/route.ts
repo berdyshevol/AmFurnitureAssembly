@@ -11,6 +11,25 @@ function field(form: FormData, name: string): string {
   return typeof value === 'string' ? value.trim().slice(0, MAX_FIELD_LENGTH) : ''
 }
 
+/**
+ * Appends the lead as a row to a Google Sheet via an Apps Script web app.
+ * Skipped until LEADS_SHEET_WEBHOOK_URL is set; a failure never blocks the lead.
+ */
+async function logLeadToSheet(row: Record<string, string>) {
+  const url = process.env.LEADS_SHEET_WEBHOOK_URL
+  if (!url) return
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(row),
+    })
+    if (!res.ok) console.error('Lead sheet append failed', res.status)
+  } catch (err) {
+    console.error('Lead sheet append failed', err)
+  }
+}
+
 /** Forwards a contact-form lead to the owner's Telegram chat. */
 export async function POST(request: Request) {
   const token = process.env.TELEGRAM_BOT_TOKEN
@@ -79,6 +98,20 @@ export async function POST(request: Request) {
     console.error('Telegram sendMessage failed', res.status, await res.text())
     return Response.json({ ok: false }, { status: 502 })
   }
+
+  await logLeadToSheet({
+    date: new Date().toISOString(),
+    name,
+    email,
+    phone,
+    city,
+    service,
+    message,
+    source: leadSource || 'Unknown',
+    referrer: leadReferrer,
+    utm: leadUtm,
+    landing: leadLanding,
+  })
 
   return Response.json({ ok: true })
 }
