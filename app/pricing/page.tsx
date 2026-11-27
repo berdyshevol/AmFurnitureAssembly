@@ -4,7 +4,7 @@ import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import CTASection from '@/components/CTASection'
 import JsonLd from '@/components/JsonLd'
-import { formatMonthYear, pageMetadata, pageHeroes, pageUpdatedAt } from '@/lib/config'
+import { pageMetadata, pageHeroes } from '@/lib/config'
 import { bundleTiers, pricingItems } from '@/lib/pricing-data'
 import { pricingSchema } from '@/lib/structured-data'
 
@@ -30,9 +30,6 @@ export default function PricingPage() {
             </h1>
             <p className="mt-4 text-white/80 text-lg max-w-xl mx-auto">
               Transparent, flat-rate pricing. No hidden fees. Know exactly what you&apos;ll pay before we start.
-            </p>
-            <p className="mt-3 text-white/60 text-sm">
-              Prices updated {formatMonthYear(pageUpdatedAt['/pricing'])}
             </p>
           </ScrollReveal>
         </div>
